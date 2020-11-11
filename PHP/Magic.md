@@ -2,7 +2,7 @@
 
 * 출처: <https://medium.com/@mahshad/php-magic-methods-dae1847c5cef> 
 
-* All function names starts with __ in PHP classes are magical and each one does something special. These functions are magical: [__construct()](#__construct()), __destruct(), __call(), __callStatic(), __get(), __set(), __isset(), __unset(), __sleep(), __wakeup(), __serialize(), __unserialize(), __toString(), __invoke(), __set_state(), __clone() and __debugInfo().
+* All function names starts with __ in PHP classes are magical and each one does something special. These functions are magical: [__construct()](# __construct()), __destruct(), __call(), __callStatic(), __get(), __set(), __isset(), __unset(), __sleep(), __wakeup(), __serialize(), __unserialize(), __toString(), __invoke(), __set_state(), __clone() and __debugInfo().
 
 * __construct()
 
