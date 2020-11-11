@@ -2,7 +2,7 @@
 
 * 출처: <https://medium.com/@mahshad/php-magic-methods-dae1847c5cef> 
 
-* All function names starts with __ in PHP classes are magical and each one does something special. These functions are magical: [__construct()](#__construct), [__destruct()](#__destruct), [__call()](#__call), [__callStatic()](#__callStatic), [__get()](#__get), [__set()](#__set), [__isset()](#__isset), [__unset()](#__isset), [__sleep()](#__sleep), [__sleep()](#__wakeup), [__serialize()](#__serialize), [__unserialize()](#__unserialize), [__toString()](#__toString), [__invoke()](#__invoke), [__clone()](#__clone) and [__debugInfo()](#__debugInfo).
+* All function names starts with __ in PHP classes are magical and each one does something special. These functions are magical: [__construct()](#__construct), [__destruct()](#__destruct), [__call()](#__call), [__callStatic()](#__callStatic), [__get()](#__get), [__set()](#__set), [__isset()](#__isset-and-__unset), [__unset()](#__isset-and-__unset), [__sleep()](#__sleep-and-__wakup), [__wakeup()](#__sleep-and-__wakup), [__serialize()](#__serialize), [__unserialize()](#__unserialize), [__toString()](#__toString), [__invoke()](#__invoke), [__clone()](#__clone) and [__debugInfo()](#__debugInfo).
 
 # __construct()
 
