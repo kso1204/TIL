@@ -153,7 +153,7 @@ print $my_cart->getTotal(0.05) . "\n";
 
 > Array_walk는
 
-* array_walk(배열, 함수) 출처: https://dororongju.tistory.com/114 [웹 개발 메모장]
+* array_walk(배열, 함수) 출처: https://dororongju.tistory.com/114
 
 * 배열의 각 요소들을 함수의 인자로 넘겨 함수를 배열의 크기만큼 실행시키는 함수입니다.
 사용자 정의 함수인 함수는 인자로 ($value, $key)를 받아 처리합니다.
