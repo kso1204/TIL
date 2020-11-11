@@ -10,6 +10,7 @@
 
 * [Version](https://github.com/kso1204/TIL/blob/main/PHP/Version.md)
 * [PSR](https://github.com/kso1204/TIL/blob/main/PHP/PSR.md)
-
+* [Magic Method](https://github.com/kso1204/TIL/blob/main/PHP/Magic.md)
+* [SPL](https://github.com/kso1204/TIL/blob/main/PHP/SPL.md)
 
 
