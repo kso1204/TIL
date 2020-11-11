@@ -118,11 +118,11 @@ class Aliased_Talker {
 ?>
 ```
 
-> Trait A와 B에서 같은 이름으로 선언된 함수는 충돌이 일어난다.
-> 이 충돌을 방지하기 위해서 Class에서는 insteadof를 사용하는데
-> B::smallTalk insteadof A라는건 A의 smallTalk대신에 B의SmallTalk를 사용하겠다는 거고
-> A::bigTalk insteadof B; 은 마찬가지로 B의 bigTalk대신에 A의 BigTalk를 사용한다는 것이다.
-> B의 BigTalk를 사용하고 싶다면 as talk<-- as로 별명을 선언해서 사용한다.
+> Trait A와 B에서 같은 이름으로 선언된 함수는 충돌이 일어난다.   
+> 이 충돌을 방지하기 위해서 Class에서는 insteadof를 사용하는데   
+> B::smallTalk insteadof A라는건 A의 smallTalk대신에 B의SmallTalk를 사용하겠다는 거고   
+> A::bigTalk insteadof B; 은 마찬가지로 B의 bigTalk대신에 A의 BigTalk를 사용한다는 것이다.   
+> B의 BigTalk를 사용하고 싶다면 as talk<-- as로 별명을 선언해서 사용한다.   
 
 
 
