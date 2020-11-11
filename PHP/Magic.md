@@ -1,6 +1,8 @@
-# What are magic methods in PHP?
+# What are magic methods in PHP? 
 
-* All function names starts with __ in PHP classes are magical and each one does something special. These functions are magical: __construct(), __destruct(), __call(), __callStatic(), __get(), __set(), __isset(), __unset(), __sleep(), __wakeup(), __serialize(), __unserialize(), __toString(), __invoke(), __set_state(), __clone() and __debugInfo().
+* 출처: <https://medium.com/@mahshad/php-magic-methods-dae1847c5cef> 
+
+* All function names starts with __ in PHP classes are magical and each one does something special. These functions are magical: [__construct()](#__construct()), __destruct(), __call(), __callStatic(), __get(), __set(), __isset(), __unset(), __sleep(), __wakeup(), __serialize(), __unserialize(), __toString(), __invoke(), __set_state(), __clone() and __debugInfo().
 
 * __construct()
 
@@ -22,3 +24,24 @@ echo $student->sayHello();
 ?>
 ```
 * Quiz - Output ? 
+
+* __destruct()
+
+This method is called as soon as the object is destroyed.
+
+```
+<?php
+class Student {
+    public function __destruct() {
+        echo "Destroy...";
+    }
+}
+echo "First...";
+$student = new Student();
+echo "Last...";
+?>
+```
+* Quiz. Output ?
+
+
+
