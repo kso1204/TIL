@@ -14,4 +14,3 @@
 * [SPL](https://github.com/kso1204/TIL/blob/main/PHP/SPL.md)
 
 
-![9e4d867a69d97424f47b9f5a9c3b0a674bde5636](https://user-images.githubusercontent.com/6989005/98789851-3d519700-2446-11eb-891d-298489cec63a.gif)
