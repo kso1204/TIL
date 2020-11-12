@@ -8,7 +8,6 @@ Factory method 는 구체적인 클래스를 지정하지 않고 제품 객체�
 
 
 ```
-
 abstract class Department {
     public abstract function createEmployee($id);
 
@@ -30,8 +29,9 @@ class AccountingDepartment extends Department {
         return new Accountant($id);
     }
 }
+```
 
-
+```
 <?php
 
 namespace RefactoringGuru\FactoryMethod\Conceptual;
