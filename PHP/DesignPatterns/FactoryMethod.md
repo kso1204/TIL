@@ -34,53 +34,42 @@ class AccountingDepartment extends Department {
 ```
 <?php
 
-namespace RefactoringGuru\FactoryMethod\Conceptual;
+//샘플 1
 
-/**
- * The Creator class declares the factory method that is supposed to return an
- * object of a Product class. The Creator's subclasses usually provide the
- * implementation of this method.
- */
+//물류를 배송한다고 생각해보자 (클래스)
+//육지 배송과 바다 배송이 있다
+//배송을 한다고 생각해보자 (인터페이스)
+//배송은 트럭으로도 하고 배로도 한다.
+
+//샘플 2
+
+//제품을 창조(factoryMethod)한다고 생각해보자
+//제품 A를 창조하는 방법(factoryMethod)과 제품B를 창조하는 방법(factoryMethod)이 있다.
+//제품을 만든다고(Operation) 생각해보자
+//제품 A를 만들거나(Operation) 제품 B를(Operation) 만든다. 
+
+//샘플 1이랑 샘플2 설명이 달라서 좀 난해하다.. 쉽게 설명하고 싶은데
+
 abstract class Creator
 {
-    /**
-     * Note that the Creator may also provide some default implementation of the
-     * factory method.
-     */
     abstract public function factoryMethod(): Product;
 
-    /**
-     * Also note that, despite its name, the Creator's primary responsibility is
-     * not creating products. Usually, it contains some core business logic that
-     * relies on Product objects, returned by the factory method. Subclasses can
-     * indirectly change that business logic by overriding the factory method
-     * and returning a different type of product from it.
-     */
     public function someOperation(): string
     {
-        // Call the factory method to create a Product object.
+        //factoryMethod를 호출하여 product객체를 만든다.
         $product = $this->factoryMethod();
-        // Now, use the product.
-        $result = "Creator: The same creator's code has just worked with " .
-            $product->operation();
+        //product 객체를 사용한다.
+        $result = "Creator: 동일한 제작자의 코드로 ". $product->operation();
 
         return $result;
     }
 }
 
-/**
- * Concrete Creators override the factory method in order to change the
- * resulting product's type.
- */
 class ConcreteCreator1 extends Creator
 {
-    /**
-     * Note that the signature of the method still uses the abstract product
-     * type, even though the concrete product is actually returned from the
-     * method. This way the Creator can stay independent of concrete product
-     * classes.
-     */
     public function factoryMethod(): Product
+     //abstract product를 사용하면서 Creator가 ConcreteProduct로부터 독립할 수 있다는 부분이 핵심인데
+     //완벽하게 이해가 되지 않는다.
     {
         return new ConcreteProduct1();
     }
@@ -94,23 +83,16 @@ class ConcreteCreator2 extends Creator
     }
 }
 
-/**
- * The Product interface declares the operations that all concrete products must
- * implement.
- */
 interface Product
 {
     public function operation(): string;
 }
 
-/**
- * Concrete Products provide various implementations of the Product interface.
- */
 class ConcreteProduct1 implements Product
 {
     public function operation(): string
     {
-        return "{Result of the ConcreteProduct1}";
+        return "{ConcreteProduct1의 결과입니다.}";
     }
 }
 
@@ -118,7 +100,7 @@ class ConcreteProduct2 implements Product
 {
     public function operation(): string
     {
-        return "{Result of the ConcreteProduct2}";
+        return "{ConcreteProduct2의 결과입니다.}";
     }
 }
 
@@ -127,12 +109,10 @@ class ConcreteProduct2 implements Product
  * its base interface. As long as the client keeps working with the creator via
  * the base interface, you can pass it any creator's subclass.
  */
+
 function clientCode(Creator $creator)
 {
-    // ...
-    echo "Client: I'm not aware of the creator's class, but it still works.\n"
-        . $creator->someOperation();
-    // ...
+    echo "Client: 나는 creator클래스를 몰라도 여전히 작동합니다.".$creator->someOperation();
 }
 
 /**
