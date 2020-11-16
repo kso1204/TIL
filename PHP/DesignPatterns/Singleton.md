@@ -1,5 +1,7 @@
 # Singleton
 
+출처 : https://refactoring.guru/design-patterns/singleton
+
 Singleton 은 클래스에 인스턴스가 하나만 있는지 확인 하면서 이 인스턴스에 대한 전역 액세스 포인트를 제공 할 수있는 생성 디자인 패턴입니다.
 
 Singleton의 모든 구현에는 다음 두 단계의 공통점이 있습니다.

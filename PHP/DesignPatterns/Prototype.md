@@ -1,5 +1,7 @@
 # Prototype
 
+출처 :https://refactoring.guru/design-patterns/prototype
+
 Prototype 은 코드를 클래스에 종속시키지 않고도 기존 객체를 복사 할 수있는 생성 디자인 패턴입니다.
 
 

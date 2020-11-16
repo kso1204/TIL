@@ -1,6 +1,6 @@
 # FactoryMethod
 
-출처 : https://refactoring.guru/design-patterns/factory-method/php/example#lang-features
+출처 : https://refactoring.guru/design-patterns/factory-method
 
 Factory method 는 구체적인 클래스를 지정하지 않고 제품 객체를 생성하는 문제를 해결하는 창작 디자인 패턴입니다.
 
