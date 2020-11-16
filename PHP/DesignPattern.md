@@ -13,6 +13,15 @@
 
     * [Adapter](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Adapter.md)
     * [Bridge](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Bridge.md)
+    * [Composite](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Composite.md)
+    * [Decorator](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Decorator.md)
+    * [Facade](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Facade.md)
+    * [Flyweight](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Flyweight.md)
+    * [Proxy](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Proxy.md)
+
+* Behavioral Design Patterns
+
+
 
     
 
