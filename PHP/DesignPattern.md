@@ -8,3 +8,11 @@
     * [Prototype](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Prototype.md)
     * [Singleton](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Singleton.md)
 
+
+* Structural Design Patterns
+
+    * [Adapter](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Adapter.md)
+    * [Bridge](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Bridge.md)
+
+    
+
