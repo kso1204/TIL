@@ -1,5 +1,7 @@
 # Composite
 
+출처 : https://refactoring.guru/design-patterns/composite
+
 Composite 는 개체를 트리 구조로 구성한 다음 개별 개체 인 것처럼 이러한 구조로 작업 할 수있는 구조적 디자인 패턴입니다.
 
 복합 패턴을 사용하는 것은 앱의 핵심 모델을 트리로 나타낼 수있는 경우에만 의미가 있습니다.
