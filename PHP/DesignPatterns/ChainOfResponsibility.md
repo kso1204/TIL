@@ -2,7 +2,8 @@
 
 출처 : https://refactoring.guru/design-patterns/chain-of-responsibility
 
-Chain of Responsibility 는 핸들러 체인을 따라 요청을 전달할 수있는 동작 디자인 패턴입니다. 요청을 수신하면 각 핸들러는 요청을 처리하거나 체인의 다음 핸들러로 전달할지 결정합니다.
+Chain of Responsibility 는 핸들러 체인을 따라 요청을 전달할 수있는 동작 디자인 패턴입니다. 
+요청을 수신하면 각 핸들러는 요청을 처리하거나 체인의 다음 핸들러로 전달할지 결정합니다.
 
 ![chain-of-responsibility](https://user-images.githubusercontent.com/6989005/99325161-12899780-28b9-11eb-996a-3e8fe1399191.png)
 
