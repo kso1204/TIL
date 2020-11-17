@@ -22,6 +22,8 @@
 * Behavioral Design Patterns
 
     * [ChainOfResponsibility](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/ChainOfResponsibility.md)
+    * [Command](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Command.md)
+    * [Iterator](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Iterator.md)
 
 
 
