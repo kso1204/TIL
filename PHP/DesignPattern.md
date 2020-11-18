@@ -25,6 +25,12 @@
     * [Command](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Command.md)
     * [Iterator](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Iterator.md)
     * [Mediator](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Mediator.md)
+    * [Memento](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Memento.md)
+    * [Observer](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Observer.md)
+    * [State](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/State.md)
+    * [Strategy](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Strategy.md)
+    * [TemplateMethod](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/TemplateMethod.md)
+    * [Visitor](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Mediator.md)
 
 
 
