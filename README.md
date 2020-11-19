@@ -15,5 +15,6 @@
 * [Trait](https://github.com/kso1204/TIL/blob/main/PHP/Trait.md)
 * [Closure](https://github.com/kso1204/TIL/blob/main/PHP/Closure.md)
 * [DesignPattern](https://github.com/kso1204/TIL/blob/main/PHP/DesignPattern.md)
+* [SOLID]](https://github.com/kso1204/TIL/blob/main/PHP/SOLID.md)
 
 
