@@ -4,6 +4,17 @@
 
 Abstract Factory 는 구체적인 클래스를 지정하지 않고도 관련 객체의 패밀리를 생성 할 수있는 창조 디자인 패턴입니다.
 
+- SRP, OCP
+
+Single Responsibility Principle. 
+
+You can extract the product creation code into one place, making the code easier to support.
+
+Open/Closed Principle. 
+
+You can introduce new variants of products without breaking existing client code.
+
+
 ![structure](https://user-images.githubusercontent.com/6989005/99019818-89b0ea00-25a0-11eb-9f51-3c578f5db291.png)
 
 가구점 시뮬레이터를 만들고 있다고 상상해보십시오. 코드는 다음을 나타내는 클래스로 구성됩니다.

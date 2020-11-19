@@ -5,6 +5,12 @@
 Builder 는 복잡한 개체를 단계별로 구성 할 수있는 창의적인 디자인 패턴입니다.
 패턴을 사용하면 동일한 구성 코드를 사용하여 객체의 다른 유형과 표현을 생성 할 수 있습니다.
 
+- SRP
+
+Single Responsibility Principle.
+
+You can isolate complex construction code from the business logic of the product.
+
 빌더란?
 ![builder-en](https://user-images.githubusercontent.com/6989005/99023173-60478c80-25a7-11eb-8bd9-5d3ec51a285d.png)
 

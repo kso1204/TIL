@@ -4,7 +4,9 @@
 
 Factory method 는 구체적인 클래스를 지정하지 않고 제품 객체를 생성하는 문제를 해결하는 창작 디자인 패턴입니다.
 
-Single Responsibility Principle.
+- SRP, OCP
+
+Single Responsibility Principle
 
 You can move the product creation code into one place in the program, making the code easier to support.
 
