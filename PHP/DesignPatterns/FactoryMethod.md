@@ -5,6 +5,12 @@
 Factory method 는 구체적인 클래스를 지정하지 않고 제품 객체를 생성하는 문제를 해결하는 창작 디자인 패턴입니다.
 
 
+![20201119093643](https://user-images.githubusercontent.com/6989005/99605491-236a1280-2a4b-11eb-9e01-96c8f4b478a9.png)
+
+![20201119093659](https://user-images.githubusercontent.com/6989005/99605495-2402a900-2a4b-11eb-9d6c-9d951ca86472.png)
+
+![20201119093734](https://user-images.githubusercontent.com/6989005/99605499-2533d600-2a4b-11eb-933e-72ecaf83662d.png)
+
 
 
 ```
