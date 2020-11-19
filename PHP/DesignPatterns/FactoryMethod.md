@@ -4,6 +4,14 @@
 
 Factory method 는 구체적인 클래스를 지정하지 않고 제품 객체를 생성하는 문제를 해결하는 창작 디자인 패턴입니다.
 
+Single Responsibility Principle.
+
+You can move the product creation code into one place in the program, making the code easier to support.
+
+Open/Closed Principle.
+
+You can introduce new types of products into the program without breaking existing client code.
+
 
 ![20201119093643](https://user-images.githubusercontent.com/6989005/99605491-236a1280-2a4b-11eb-9e01-96c8f4b478a9.png)
 
