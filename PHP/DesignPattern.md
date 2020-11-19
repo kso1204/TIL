@@ -1,5 +1,7 @@
 # DesignPattern
 
+디자인 패턴은 그림이 같더라도 의도가 다른 경우가 있다.    
+
 * Creational Design Patterns
 
     * [AbstractFactory](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/AbstractFactory.md)
