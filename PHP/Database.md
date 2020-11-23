@@ -1,5 +1,7 @@
 # Database
 
+출처 : https://modernpug.github.io/php-the-right-way/
+
 MySQL 익스텐션 
 
 PHP의 MySQL익스텐션은 아주 오래되었고, 다음 두 익스텐션으로 대체되었습니다.
