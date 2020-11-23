@@ -20,5 +20,7 @@
 * [Template](https://github.com/kso1204/TIL/blob/main/PHP/Template.md)
 * [ErrorAndException](https://github.com/kso1204/TIL/blob/main/PHP/ErrorAndException.md)
 * [Secure](https://github.com/kso1204/TIL/blob/main/PHP/Secure.md)
+* [Test](https://github.com/kso1204/TIL/blob/main/PHP/Test.md)
+* [ServerAndDeploy](https://github.com/kso1204/TIL/blob/main/PHP/ServerAndDeploy.md)
 
 
