@@ -32,9 +32,19 @@ posts에서 comments데이터를 가져오고 comments에서 어떤 유저가 co
 
 이정보를 바탕으로 클래스들을 생성하고 테스트가 통과하면 frontend에서 이 데이터를 가져옵니다.
 
+이 강의에서는 각 resource를 생성할 때 data에 type과 해당 id를 넣고
+
+그 내용에 대한 직접적인 data는 attributes로 나누어서 작업했습니다. 
+
+꼭 이렇게 할 필요는 없을 것 같은데,
+
+소스가 길긴해도 알아보기는 쉬울 것 같아 편한데로 이용하면 될 것 같습니다.
+
 근데 이 frontend를 가져올 때 결국 데이터를 가공하게 되는 부분이 들어가는데
 
 이 부분을 frontend에서 담당하는건지에 대한 의문이.. 
+
+
 
 ```
 public function test_a_posts_are_returned_with_comments()
