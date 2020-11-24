@@ -126,3 +126,6 @@ PHP는 별로 손을 대지 않아도 꽤 빠른 편이긴 하지만, 원격 시
 
 물론 도커로..
 
+https://redis.io/documentation
+
+https://aregsar.com/blog/2020/laravel-app-with-redis-in-docker/
