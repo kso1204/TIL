@@ -22,9 +22,9 @@
 
 꼭 알고 가야하는 정보
 
-1. IPsec, 개인정보보호법, DDos Attack, Port Scan, Snort, Iptable, Password 관련, HTTP 공격 세 가지, ISMS-P
-2. 접근제어 모델, IDS와 IPS의 침입 탐지 및 방지 원리, 웹 취약점
-3. FTP 동작방식, VLAN의 개념, 위험, 분석방법
+1. IPsec, 개인정보보호법, DDos Attack, Port Scan, Snort, Iptable, Password 관련, ISMS-P
+2. 접근제어 모델, IDS와 IPS의 침입 탐지 및 방지 원리, 웹 취약점, HTTP 공격 세 가지
+3. FTP 동작방식, VLAN의 개념, 위험, 분석방법, Robots
 
 도움 받은 사이트  
 
