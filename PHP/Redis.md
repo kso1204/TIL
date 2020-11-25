@@ -314,7 +314,9 @@ Migrating: 2020_11_24_050425_create_jobs_table
 Migrated:  2020_11_24_050425_create_jobs_table (167.11ms)
 ```
 
-한참을 삽질하다가 드디어 해결했는데..
+Queue로 메일 보내려는 걸 한참 삽질하다가 드디어 해결했는데..
+
+https://www.codechief.org/article/laravel-queues-example-using-redis-and-horizon 도움 된 링크
 
 .env 파일에서
 
@@ -370,3 +372,23 @@ Queue::push(new WelcomeEmailJob());
 이건 그냥 Queue에 데이터 넣는 것
 
 이제 redis를 사용해 기존 데이터를 이용한 랭킹 System을 구축해보자 
+
+https://github.com/predis/predis
+
+```
+$client = new Predis\Client();
+$client->set('foo', 'bar');
+$value = $client->get('foo');
+dd($value);
+```
+
+```
+1) Tests\Feature\RedisRankingTest::testExample
+Error: Class 'Tests\Feature\Predis\Client' not found
+```
+
+흠.. predis로 하니까 zrange가 없는듯하다
+
+https://gist.github.com/lesstif/99a65bc7058e0db1bdea85fd4c726d0e 예제.. 안되고
+
+https://github.com/phpredis/phpredis#zrange phpredis에 zrange가 있다.
