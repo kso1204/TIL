@@ -399,3 +399,157 @@ phpredis 설치 다시 도전.. C 컴파일러 없다고 했으니까 GCC부터 
 
 https://copycoding.tistory.com/285
 
+
+https://stackoverflow.com/questions/54226604/how-to-add-php-redis-for-a-dockerfile-of-laravel-to-kubernetes
+
+dockerfile에서 설정하는 게 있어서 이대로 해보려고 하는데..
+
+docker-compose build 명령어를 또 그새 까먹어서 헤매고 있었다.
+
+phpredis를 다시 설치하게 되면
+
+config/database.php 파일에서 다시 아래와 같이 변경해야 하는데
+
+client' => env('REDIS_CLIENT', 'phpredis'), 
+
+phpredis를 아직 설치하지 않았으면
+
+Please make sure the PHP Redis extension is installed and enabled.
+
+이런 메시지가 나온다.. phpredis가 설치되었는지 보려면?
+
+우선 dockerfile 참고.. https://github.com/daper/docker-alpine-php/blob/master/7.1/Dockerfile
+
+내가 php shell에서 사용했던 문제들은.. 사실상 dockerfile에서 해결했어야 한다 composer ~ 등등 모든 것들을..
+
+FROM php:7.4-fpm-alpine
+
+RUN apk add autoconf automake make gcc g++ libtool pkgconfig libmcrypt-dev re2c git zlib-dev xdg-utils libpng-dev freetype-dev libjpeg-turbo-dev openssh-client libxslt-dev ca-certificates gmp-dev 
+
+RUN apk add --no-cache pcre-dev $PHPIZE_DEPS \
+        && pecl install redis \
+        && docker-php-ext-enable redis.so
+
+RUN docker-php-ext-install pdo pdo_mysql sockets 
+
+이상태로 bulid를 한 다음에 재시작 하니까 에러 메세지가 사라졌다.
+
+이 상태에서 phpredis가 잘 되었는지 확인하는 방법이 있을텐데;
+
+apt get이 아니고 apk add인 이유는 윈도우여서??
+
+RedisException: NOAUTH Authentication required.
+
+unitTest하는 부분에 
+
+$this->redis->auth(['secret']); 추가했더니 됐는데 이게 맞나;
+```
+Redis {#349
+  isConnected: true
+  host: "redis"
+  port: 6379
+  auth: null
+  mode: ATOMIC
+  dbNum: 0
+  timeout: 0.0
+  lastError: null
+  persistentId: null
+  options: {
+    TCP_KEEPALIVE: 0
+    READ_TIMEOUT: 0.0
+    COMPRESSION: NONE
+    SERIALIZER: NONE
+    PREFIX: null
+    SCAN: NORETRY
+  }
+}
+/var/www/html/game # vendor/bin/phpunit --filter RedisRankingTest
+PHPUnit 9.4.3 by Sebastian Bergmann and contributors.
+
+Redis {#349
+  isConnected: true
+  host: "redis"
+  port: 6379
+  auth: "secret"
+```
+
+
+```
+/var/www/html/game # vendor/bin/phpunit --filter RedisRankingTest
+PHPUnit 9.4.3 by Sebastian Bergmann and contributors.
+
+array:5 [
+  "member" => "민정훈"
+  "rank" => 18
+  "revRank" => 11
+  "revrange" => array:16 [
+    "심병호" => 2124.0
+    "양소민" => 2109.0
+    "하도현" => 2085.0
+    "옥구범" => 1991.0
+    "류승민" => 1991.0
+    "유연희" => 1946.0
+    "차성령" => 1940.0
+    "길은혜" => 1934.0
+    "나기수" => 1923.0
+    "설지희" => 1907.0
+    "오미경" => 1889.0
+    "민정훈" => 1872.0
+    "변민수" => 1851.0
+    "유준호" => 1840.0
+    "정나연" => 1828.0
+    "한경석" => 1802.0
+  ]
+  "range" => array:16 [
+    "반지혜" => 1591.0
+    "심중수" => 1597.0
+    "구태호" => 1608.0
+    "유정은" => 1647.0
+    "남궁정훈" => 1687.0
+    "왕민형" => 1691.0
+    "신문창" => 1708.0
+    "황윤서" => 1734.0
+    "조민철" => 1735.0
+    "명진희" => 1756.0
+    "인민형" => 1757.0
+    "남궁은희" => 1764.0
+    "주여진" => 1770.0
+    "남선정" => 1771.0
+    "한경석" => 1802.0
+    "정나연" => 1828.0
+  ]
+]
+.                                                                   1 / 1 (100%)
+
+Time: 00:03.159, Memory: 18.00 MB
+
+OK (1 test, 1 assertion)
+```
+
+우여곡절끝에 redis로 테스트도 성공하고 이 상태로 ranking data만 뽑아보면 될듯하다
+
+https://medium.com/garimoo/redis-documentation-3-%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85%EA%B3%BC-%EC%B6%94%EC%83%81%ED%99%94-e86bcd15c876
+
+레디스 설명
+
+많은 데이터중에 mysql에서 상위 10명 데이터 구하는 것보다 redis가 구하기 쉽기 때문에 redis를 쓴다고하면..?
+
+redis의 dataset은 계속 어떻게 관리되는걸까..? 
+
+1. record가 save될 때 mysql, redis에도 저장되게 하고 그 데이터 가져오기?
+
+2. record가 save될 때 redis에만 저장하기?
+
+3. database에 저장된 mysql 데이터 중.. 상위 10개 뽑아서 레디스? 이건 아니자나
+
+
+
+2방식으로 해봤는데 저장할 때 exp와 id를 zadd로 저장하고.. 이 내용을 zrange(key,0,10,true)로 1~10등 데이터를 뽑았다.
+
+근데 원래 record return할 때 colletion으로 뿌려줬는데.. 
+
+array에서 object형태로 저장해서 뿌려줘야 하나? 이름이랑 점수 이메일을 같이 저장한 다음에..?
+
+막상 저장한 내용이 나오니까 별 거 아니다.. 이 별 거 아닌걸 하기위해 많은 시간을 보냈다 ㅠㅠ 실수가 넘 많아서..
+
+우선 어떻게 보여주고 어떻게 처리해야 할지는 좀 더 생각을 해봐야겠다.

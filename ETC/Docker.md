@@ -35,10 +35,3 @@ php artisan 명령어를 사용할 때 도커 컨테이너를 사용했기 때�
 도커를 사용하는 여러 방법 중 한 가지라도 제대로 알면 어느 방법을 사용해도 될 것 같지만..
 
 한 가지를 제대로 모르고 사용하니까 너무 헷갈린다 많은 글을 봐도 궁금증이 풀리지 않음..
-
-https://stackoverflow.com/questions/54226604/how-to-add-php-redis-for-a-dockerfile-of-laravel-to-kubernetes
-
-dockerfile에서 설정하는 게 있어서 이대로 해보려고 하는데..
-
-docker-compose build 명령어를 또 그새 까먹어서 헤매고 있었다.
-
