@@ -392,3 +392,10 @@ Error: Class 'Tests\Feature\Predis\Client' not found
 https://gist.github.com/lesstif/99a65bc7058e0db1bdea85fd4c726d0e 예제.. 안되고
 
 https://github.com/phpredis/phpredis#zrange phpredis에 zrange가 있다.
+
+$redis-> 뭐를 하려고 하면 다 에러.. connect connection에러 그냥 Redis::get하면 잘 되는데?
+
+phpredis 설치 다시 도전.. C 컴파일러 없다고 했으니까 GCC부터 다시 설치
+
+https://copycoding.tistory.com/285
+

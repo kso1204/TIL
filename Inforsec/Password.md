@@ -54,3 +54,9 @@ PASS_WARN_AGE 7 (만료일 7일이 남은 시점부터 패스워드 변경 알�
 
 3. 패스워드 잠금 임계값 설정(/etc/pam.d/system-auth) (출제)
 
+auth required /lib/security/pam_tally.so deny=5 unlock_time=120 no_magic root reset
+
+deny = 5 (5회 입력 실패 시 패스워드 잠금)
+unlock_time = 120 (계정이 잠긴 이후 설정 시간 경과 후 잠김 해제(초))
+no_magic_root (root는 패스워드 잠금 설정 예외)
+reset (인증 성공 시 실패 횟수 초기화)
