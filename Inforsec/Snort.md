@@ -26,3 +26,13 @@ alert tcp any any <> any 1.[443, 465, 523] (2.content:"\18 03 00\"; depth:3; 3.c
 와.. 4번에 !가 포함되어 있지 않다는 것을 잘 봐야 한다고 했는데, 이 문제를 직접 풀고 풀이를 세 번은 봤는데
 처음 알았다..  
 
+alert any any -> any 80 (msg "XSS";content:"GET";offset:1;depth:3;content:"/login.php<scrip>XSS";distance:1;)
+
+1. content:"GET"; offset:1; depth:3의 의미? 
+2. content:"/login.php<scrip>XSS";distance 1;
+3. 바이너리로 전송된 패킷(L이 대문자)을 참고하여 위의 룰로 탐지 안될 경우 어떻게 수정해야 하는지 기술
+
+1. 전송된 패킷의 처음 1바이트를 띄고 3바이트를 검사해서 GET을 찾으라는 의미
+2. 이전메시지를 찾은 위치에서 1바이트를 띄고 content안에 기술된 문자열을 찾으라는 의미
+3. offset을 0으로 수정하거나 삭제, nocase 옵션 추가 or Login으로 수정
+

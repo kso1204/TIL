@@ -27,7 +27,8 @@ Next : https://blog.naver.com/PostView.nhn?blogId=stereok2&logNo=221689408210&pa
 
 1. IPsec, 개인정보보호법, DDos Attack, Port Scan, Snort, Iptable, Password 관련, ISMS-P
 2. 접근제어 모델, IDS와 IPS의 침입 탐지 및 방지 원리, 웹 취약점, HTTP 공격 세 가지
-3. FTP 동작방식, VLAN의 개념, 위험, 분석방법, Robots
+3. FTP 동작방식, VLAN의 개념, 위험, 분석방법, Robots, 시스템 로그 파일
+4. 웹 서버 설정
 
 도움 받은 사이트  
 
