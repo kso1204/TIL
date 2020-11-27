@@ -22,7 +22,7 @@
 * [Secure](https://github.com/kso1204/TIL/blob/main/PHP/Secure.md)
 * [Test](https://github.com/kso1204/TIL/blob/main/PHP/Test.md)
 * [ServerAndDeploy](https://github.com/kso1204/TIL/blob/main/PHP/ServerAndDeploy.md)
-* [Redis](https://github.com/kso1204/TIL/blob/main/PHP/Redis.md)
+
 
 
 # 정보보안
@@ -43,4 +43,5 @@
 
 # 기타
 
-* [Docker]
+* [Docker](https://github.com/kso1204/TIL/blob/main/ETC/Docker.md)
+* [Redis](https://github.com/kso1204/TIL/blob/main/ETC/Redis.md)
