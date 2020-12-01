@@ -42,3 +42,5 @@ iptables -A INPUT -p tcp --syn --dport 80 -m connlimit --conlimit-above 5 -j LOG
 
 iptables -A INPUT -p tcp --tcp-flags ALL SYN,FIN -m limit --limit 5/minute -j LOG --log-prefix "[LIMIT]"
 
+
+

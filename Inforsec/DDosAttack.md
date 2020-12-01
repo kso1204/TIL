@@ -1,5 +1,7 @@
 # DDos
 
+https://blog.naver.com/stereok2/221425992055
+
 1. Smurf 공격 원리 및 대응 방법
 
 - 원리 : 공격자가 출발지 IP를 희생자IP로 위조(Spoofing)한 후 증폭 네트워크로 ICMP Echo request를 브로드캐스트하여,

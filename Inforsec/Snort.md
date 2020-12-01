@@ -1,5 +1,7 @@
 # Snort
 
+https://blog.naver.com/PostView.nhn?blogId=stereok2&logNo=221984313061&parentCategoryNo=25&categoryNo=29&viewDate=&isShowPopularPosts=false&from=postView
+
 alert tcp any any -> any 80 (msg:"경고메세지"; content:/"GET \ HTTP\ 1./"; nocase; offset:0; sid:10000001; threshold:type
 treshold, track_src, count 10, seconds 1;)
 
@@ -34,5 +36,12 @@ alert any any -> any 80 (msg "XSS";content:"GET";offset:1;depth:3;content:"/logi
 
 1. 전송된 패킷의 처음 1바이트를 띄고 3바이트를 검사해서 GET을 찾으라는 의미
 2. 이전메시지를 찾은 위치에서 1바이트를 띄고 content안에 기술된 문자열을 찾으라는 의미
-3. offset을 0으로 수정하거나 삭제, nocase 옵션 추가 or Login으로 수정
+3. offset을 0으로 수정하거나 삭제하고 nocase 옵션 추가 or Login으로 수정
+
+
+alert tcp any any -> any 22 (msg:"SSH Brute force login"; content:"SSH-2.0"; nocase; threshold:type both, track by_src,count 3,seconds 30;sid:1000110;)
+
+
+Type 은 both, limit, threshold 3개 중 하나를 지정할 수 있습니다.
+both라고 지정한 경우 seconds 뒤에 지정된 시간동안 count 뒤에 지정한 횟수에 해당하는 이벤트가 발생 시 한번 action을 수행합니다.
 
