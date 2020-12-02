@@ -45,3 +45,17 @@ alert tcp any any -> any 22 (msg:"SSH Brute force login"; content:"SSH-2.0"; noc
 Type 은 both, limit, threshold 3개 중 하나를 지정할 수 있습니다.
 both라고 지정한 경우 seconds 뒤에 지정된 시간동안 count 뒤에 지정한 횟수에 해당하는 이벤트가 발생 시 한번 action을 수행합니다.
 
+limit : 매 s초 동안 c번째 이벤트까지 action을 수행한다.
+ex) threshold type limit, track by_src, count 2, seconds 10
+출발지 ip를 기준으로 매10초 동안 2번째 이벤트까지 action을 수행한다.
+
+threshold : 매 s초 동안 c번째 이벤트마다 action을 수행한다.
+ex) threshold type threshold, track by_src, count 10, seconds 5
+출발지 ip를 기준으로 매5초동안 10번째 이벤트마다 action을 수행한다.
+
+both : 매 s초 동안 c번째 이벤트 시 한번 action을 수행한다.
+ex) threshold type both, track by_src, count 10, seconds 1
+출발지 ip를 기준으로 매1초 동안 10번째 이벤트 시 한번 action을 수행한다.
+
+
+
