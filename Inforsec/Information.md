@@ -26,9 +26,9 @@ Next : https://blog.naver.com/PostView.nhn?blogId=stereok2&logNo=221689408210&pa
 꼭 알고 가야하는 정보
 
 1. [IPsec](https://github.com/kso1204/TIL/blob/main/Inforsec/IPSec.md), 개인정보보호법, [DDos Attack](https://github.com/kso1204/TIL/blob/main/Inforsec/DDosAttack.md), [Port Scan](https://github.com/kso1204/TIL/blob/main/Inforsec/PortScan.md), [Snort](https://github.com/kso1204/TIL/blob/main/Inforsec/Snort.md), [Iptable](https://github.com/kso1204/TIL/blob/main/Inforsec/IPtables.md), [Password 관련](https://github.com/kso1204/TIL/blob/main/Inforsec/Password.md)
-2. 접근제어 모델, [IDS와 IPS의 침입 탐지 및 방지 원리](https://github.com/kso1204/TIL/blob/main/Inforsec/IDSAndIPS.md), 웹 취약점, HTTP 공격 세 가지
+2. 접근제어 모델, [IDS와 IPS의 침입 탐지 및 방지 원리](https://github.com/kso1204/TIL/blob/main/Inforsec/IDSAndIPS.md), 웹 취약점, HTTP 공격 세 가지, [OSI 7계층](https://github.com/kso1204/TIL/blob/main/Inforsec/OSI7Layer.md)
 3. FTP 동작방식, [VLAN의 개념](https://github.com/kso1204/TIL/blob/main/Inforsec/VLAN.md), [위험](https://github.com/kso1204/TIL/blob/main/Inforsec/Risk.md), [분석방법](https://github.com/kso1204/TIL/blob/main/Inforsec/RiskAnalysis.md), [Robots](https://github.com/kso1204/TIL/blob/main/Inforsec/Robots.md), [시스템 로그 파일](https://github.com/kso1204/TIL/blob/main/Inforsec/LogFile.md), ISMS-P
-4. [웹 서버 설정](https://github.com/kso1204/TIL/blob/main/Inforsec/WebSetting.md)
+4. [웹 서버 설정](https://github.com/kso1204/TIL/blob/main/Inforsec/WebSetting.md), [IPv4AndIPv6](https://github.com/kso1204/TIL/blob/main/Inforsec/IPv4AndIPv6.md)
 
 도움 받은 사이트  
 
