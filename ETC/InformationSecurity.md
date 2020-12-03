@@ -1,7 +1,4 @@
-# Information
-
-Next : https://blog.naver.com/PostView.nhn?blogId=stereok2&logNo=221689408210&parentCategoryNo=25&categoryNo=29&viewDate=&isShowPopularPosts=false&from=postView
-
+# InformationSecurity
 
 기본적으로 범위도 괴랄하고.. 깊은 이해가 필요하기 때문에 교재에 없는 정보까지 신경쓰다보면 산으로 감 ㅠㅠ
 하나를 알아도 정확하게 알아야 하기 때문에 이번 전략을 아는 것을 상세하게 보강하기로.. 마지막이다

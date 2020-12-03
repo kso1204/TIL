@@ -24,30 +24,9 @@
 * [ServerAndDeploy](https://github.com/kso1204/TIL/blob/main/PHP/ServerAndDeploy.md)
 
 
-
-# 정보보안
-
-* [Information](https://github.com/kso1204/TIL/blob/main/Inforsec/Information.md)
-
-* [IPSec](https://github.com/kso1204/TIL/blob/main/Inforsec/IPSec.md)
-* [Password](https://github.com/kso1204/TIL/blob/main/Inforsec/Password.md)
-* [DDosAttack](https://github.com/kso1204/TIL/blob/main/Inforsec/DDosAttack.md)
-* [Snort](https://github.com/kso1204/TIL/blob/main/Inforsec/Snort.md)
-* [PortScan](https://github.com/kso1204/TIL/blob/main/Inforsec/PortScan.md)
-* [Iptable](https://github.com/kso1204/TIL/blob/main/Inforsec/IPtables.md)
-
-* [IDSAndIPS](https://github.com/kso1204/TIL/blob/main/Inforsec/IDSAndIPS.md)
-
-* [Risk](https://github.com/kso1204/TIL/blob/main/Inforsec/Risk.md)
-* [RiskAnalysis](https://github.com/kso1204/TIL/blob/main/Inforsec/RiskAnalysis.md)
-* [Robots](https://github.com/kso1204/TIL/blob/main/Inforsec/Robots.md)
-* [VLAN](https://github.com/kso1204/TIL/blob/main/Inforsec/VLAN.md)
-* [LogFile](https://github.com/kso1204/TIL/blob/main/Inforsec/LogFile.md)
-
-* [WebSetting](https://github.com/kso1204/TIL/blob/main/Inforsec/WebSetting.md)
-
 # 기타
 
 * [Docker](https://github.com/kso1204/TIL/blob/main/ETC/Docker.md)
 * [Redis](https://github.com/kso1204/TIL/blob/main/ETC/Redis.md)
 * [AWS](https://github.com/kso1204/TIL/blob/main/ETC/AWS.md)
+* [InformationSecurity](https://github.com/kso1204/TIL/blob/main/Inforsec/InformationSecurity.md)
