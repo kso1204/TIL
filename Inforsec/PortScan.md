@@ -18,7 +18,7 @@ nmap -T4 -sT -p 23,80 192.168.56.100
 
 스텔스 스캔 방식 - TCP 세션이 완전히 성립되지 않은 상태에서 (TCP 연결 설정 미완료 상태) 대상 시스템의 포트 활성화(오픈) 여부를 알아내는 스캔 방식으로 TCP 연결 설정이 완전히 이루어지지 않기 때문에 스캔 대상 시스템에 로그가 남지 않아 공격자는 자신의 IP를 노출시키지 않으면서 스캔할 수 있는데 이렇게 흔적을 남기지 않는다는 의미에서 스텔스 스캔이라 한다.
 
-TCP SYN Scan, TCP FIN Scan, TCP Xmas Scan, TCP Null Scan
+스텔스 스캔 - TCP SYN Scan, TCP FIN Scan, TCP Xmas Scan, TCP Null Scan
 
 열린 상태 - SYN + ACK 응답을 수신한다. 열린 상태라는 것을 확인한 다음 ACK를 보내지 않고 RST를 보내 연결을 종료
 
