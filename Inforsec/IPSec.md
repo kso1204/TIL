@@ -2,6 +2,11 @@
 
 참고 : https://m.blog.naver.com/PostView.nhn?blogId=sdug12051205&logNo=221537706305&proxyReferer=https:%2F%2Fwww.google.com%2F
 
+IPSec을 기준으로 전송모드, 터널모드
+
+AH는 Trailer 존재 X
+ESP는 ESP Auth 추가
+
 스샷으로만 공부하니까 눈으로만 보고 넘어간다.. 꼭 그려보거나 써보길
 
 나중에 생각이 애매하게 난다.
