@@ -14,7 +14,7 @@
 
 3. 어플리케이션 보안
 
-488(DNS Spoofing), 504(Web설정), 511(Web설정), 531(Robots.txt)
+488(DNS Spoofing), 504(Web설정), 511(Web설정), 531(Robots.txt), 619(Snort), 622(네트워크 보안장비), 623(Iptables)
 
 4. 침해사고 분석 및 대응
 
