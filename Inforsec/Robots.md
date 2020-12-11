@@ -18,4 +18,4 @@ useragent : googlebot-image
 
  - 가. 검색엔진 로봇(yeti, googlebot)에 대하여 root 디렉토리(/)밑의 모든 파일 및 디렉토리의 크롤링을 허용
  - 나. 검색엔진 로봇(googlebot-image)에 대하여 /admin 폴더 크롤링을 허용하지 않음
- - 다. 검색엔진 로봇(googlebot-image)에 대하여 
+ - 다. 검색엔진 로봇(googlebot-image)에 대하여 .pdf 파일의 크롤링을 허용하지 않음
