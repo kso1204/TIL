@@ -37,19 +37,28 @@ $6$XgdBQotI$9aWVZ.8iotPu0pZfUiXagWLF1AGSPjshsDrEOq.........
 password requisite pam_cracklib.so try_first_pass retry=3 minlen=8 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=-1 difok=8
 
 retry = 3 (3번까지 패스워드 재입력 가능)
+
 minlen = 8 (최소 8자리 이상 설정)
+
 lcredit = -1 (소문자 최소 1개 이상 요구)
+
 ucredit = -1 (대문자 최소 1개 이상 요구)
+
 dcredit = -1 (숫자 최소 1개 이상 요구)
+
 ocredit = -1 (특수문자 최소 1개 이상 요구)
+
 difok = 8 (기존 패스워드와의 일치율 비교, 기본값은 10 (50%))
+
 ​
 
 
 2. 패스워드 사용기간 설정 (/etc/login.defs) (출제)
 
 PASS_MAX_DAYS 60 (최대 60일간 패스워드 사용 가능)
+
 PASS_MIN_DAYS 1 (최소 1일 경과 후 패스워드 변경 가능)
+
 PASS_WARN_AGE 7 (만료일 7일이 남은 시점부터 패스워드 변경 알림)
 
 3. 패스워드 잠금 임계값 설정(/etc/pam.d/system-auth) (출제)
@@ -57,6 +66,9 @@ PASS_WARN_AGE 7 (만료일 7일이 남은 시점부터 패스워드 변경 알�
 auth required /lib/security/pam_tally.so deny=5 unlock_time=120 no_magic root reset
 
 deny = 5 (5회 입력 실패 시 패스워드 잠금)
+
 unlock_time = 120 (계정이 잠긴 이후 설정 시간 경과 후 잠김 해제(초))
+
 no_magic_root (root는 패스워드 잠금 설정 예외)
+
 reset (인증 성공 시 실패 횟수 초기화)
