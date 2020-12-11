@@ -18,7 +18,7 @@ iptables -A INPUT -p tcp -s 172.30.1.55 -d 192.160.137.80 --dport 80 -j ACCEPT
 
 2) 소스 IP (172.30.1.55)에서 목적지 포트(21번, ftp)로 접속을 차단하는 정책은 다음과 같습니다.
 
-iptables -A INPUT -p tcp -s 172.30.1.55 -dport 21 -j DROP
+iptables -A INPUT -p tcp -s 172.30.1.55 --dport 21 -j DROP
 
 두 번째 실습은, 세션의 연결 상태를 체크(Statefull inspection)하여 정상적인 패킷은 최초 접속 허용 후 룰 재검사를 하지 않도록 하고, 비정상적인 패킷은 Drop시키는 정책 등록입니다.
 
@@ -34,7 +34,7 @@ iptables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
 
 1) 동일 출발지 IP에서 목적지의 80번 포트로 동시 연결 개수가 5개 초과 시 [CONNLIMIT] 를 접두어로 하여 로그에 남기는 정책은 다음과 같습니다
 
-iptables -A INPUT -p tcp --syn --dport 80 -m connlimit --conlimit-above 5 -j LOG --log-prefix "[CONNLIMIT]"
+iptables -A INPUT -p tcp --syn --dport 80 -m connlimit --connlimit-above 5 -j LOG --log-prefix "[CONNLIMIT]"
 
 네 번째 실습은, limit 모듈을 이용하여 로깅을 최소화하는 정책 등록입니다.
 

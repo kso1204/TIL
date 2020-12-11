@@ -2,9 +2,6 @@
 
 https://blog.naver.com/PostView.nhn?blogId=stereok2&logNo=221855660006&parentCategoryNo=25&categoryNo=29&viewDate=&isShowPopularPosts=false&from=postView
 
-문제가 기억이 잘 안 나는데 방화벽 룰셋 검증인지 포트 오픈여부인지 확인을 해야한다.
-
-자신있게 포트 오픈여부라고 했다가 틀렸..
 
 1. TCP Connect(Open) 스캔
 
