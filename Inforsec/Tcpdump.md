@@ -10,7 +10,7 @@ tcpdump는 유닉스 계열에서 설치, 활용이 가능하며 윈도우용으
 
 tcpdump의 사용 예
 
-tcpdump -i eth0 src host 192.168.159.131 and src port 80
+tcpdump -i eth0 src host 192.168.159.131 and dst port 80
 
 eth0 인터페이스에서 출발지 IP가 192.168.159.131이고 목적지 포트가 80인 패킷들을 출력
 
