@@ -25,3 +25,5 @@ RabbitMq, ActiveMq, ZeroMq, kafka에 대한 설명
 Rabbitmq를 제일 많이 쓰고.. 그다음에 좀 더 속도에 초점을 둔다면 kafka를 사용하는 것 같다.
 
 출처: https://12bme.tistory.com/176 [길은 가면, 뒤에 있다.]
+
+라인에서 사용하는 카프카 https://engineering.linecorp.com/ko/blog/how-to-use-kafka-in-line-1/
