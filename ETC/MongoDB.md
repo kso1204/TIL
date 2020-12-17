@@ -2,6 +2,10 @@
 
 https://edu.goorm.io/learn/lecture/557/%ED%95%9C-%EB%88%88%EC%97%90-%EB%81%9D%EB%82%B4%EB%8A%94-node-js/lesson/174384/mongodb%EB%9E%80
 
+NoSQl ( Not Only Sql )
+
+테이블끼리 아무런 관계가 없다.
+
 mongoDB 특징
 
 Join이 없으므로 Join이 필요 없도록 데이터 구조화가 필요
