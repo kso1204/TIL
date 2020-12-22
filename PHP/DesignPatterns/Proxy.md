@@ -11,7 +11,7 @@
 
 ![20201116175915](https://user-images.githubusercontent.com/6989005/99235302-078f2280-2839-11eb-8ab6-bc6824385dd2.png)
 
-
+```
 <?php
 
 //같은 request를 처리하는 데
@@ -109,3 +109,4 @@ $proxy = new Proxy($realSubject);
 clientCode($proxy);
 
 ?>
+```

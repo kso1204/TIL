@@ -32,7 +32,7 @@
     * [State](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/State.md)
     * [Strategy](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Strategy.md)
     * [TemplateMethod](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/TemplateMethod.md)
-    * [Visitor](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Mediator.md)
+    * [Visitor](https://github.com/kso1204/TIL/blob/main/PHP/DesignPatterns/Visitor.md)
 
 
 
