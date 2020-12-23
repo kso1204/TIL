@@ -143,9 +143,11 @@ SVL에는 없는 GIT만 가지고 있는 특이점은? - 분산 시스템
 
 4. Value와 Reference의 차이
 
+5. Overloading 과 Overriding
+
 5. Service Provider란?
 
-6. Macro에 대해서 아는지? 사용해 봤는지?
+6. Service Provider + Macro에 대해서 아는지? 사용해 봤는지?
 
 7. Command를 만들어서 그 내용을 불러서 사용하려면 어떻게 하는지?
 
