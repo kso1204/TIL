@@ -1,5 +1,13 @@
 # Container
 
+서비스 컨테이너, 바인딩, 프로바이더, 레지스터, 파사드에 대한 개념이 안 잡힐 때 도와주는 영상
+
+https://laracasts.com/series/laravel-6-from-scratch/episodes/38?autoplay=true
+
+https://laracasts.com/series/laravel-6-from-scratch/episodes/39?autoplay=true
+
+https://laracasts.com/series/laravel-6-from-scratch/episodes/40?autoplay=true
+
 https://laravel.kr/docs/8.x/container
 
 라라벨의 서비스 컨테이너는 클래스의 의존성을 관리하고 의존성을 주입하는 강력한 도구 입니다.
