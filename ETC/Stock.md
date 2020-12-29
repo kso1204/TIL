@@ -15,3 +15,4 @@
 [00006733_0001.pdf](https://github.com/kso1204/TIL/files/5746038/00006733_0001.pdf)
 
 1. [Day-1](https://github.com/kso1204/TIL/blob/main/Stock/Day1.md)
+2. [Day-2](https://github.com/kso1204/TIL/blob/main/Stock/Day2.md)
