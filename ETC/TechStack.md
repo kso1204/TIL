@@ -22,7 +22,7 @@ InfluxDB
 
 * [MongoDB](https://github.com/kso1204/TIL/blob/main/TechStack/MongoDB.md)
 
-redis
+Redis
 
 Mysql
 
@@ -44,7 +44,7 @@ ZIPKIN
 
 Telegraf
 
-# Tools
+# Tools (CI; Continuous Integration)
 
 Jenkins
 
