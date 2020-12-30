@@ -32,9 +32,9 @@ Rabbitmq
 
 # Languages
 
-Kotlin
+* [Kotlin](https://github.com/kso1204/TIL/blob/main/TechStack/Kotlin.md)
 
-TypeScript
+* [TypeScript](https://github.com/kso1204/TIL/blob/main/TechStack/TypeScript.md)
 
 # Monitorings
 
@@ -46,7 +46,8 @@ Telegraf
 
 # Tools (CI; Continuous Integration)
 
-Jenkins
+* [Jenkins](https://github.com/kso1204/TIL/blob/main/TechStack/Jenkins.md)
+
 
 # Conatiner Orchestartion Tools
 
