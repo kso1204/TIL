@@ -31,6 +31,6 @@
 * [Redis](https://github.com/kso1204/TIL/blob/main/ETC/Redis.md)
 * [AWS](https://github.com/kso1204/TIL/blob/main/ETC/AWS.md)
 * [정보보안](https://github.com/kso1204/TIL/blob/main/ETC/InformationSecurity.md)
-* [기술스택](https://github.com/kso1204/TIL/blob/main/ETC/SkillStack.md)
+* [기술스택](https://github.com/kso1204/TIL/blob/main/ETC/TechStack.md)
 * [AWS+Docker](https://github.com/kso1204/TIL/blob/main/ETC/AwsDocker.md)
 * [경제](https://github.com/kso1204/TIL/blob/main/ETC/Stock.md)
