@@ -24,10 +24,4 @@
 
 # 용어
 
-1. 채권최고액
-2. 근저당
-3. 융자금말소
-4. 전세사기
-5. 동시진행
-6. HUG 전세 보증금 반환
-7. 갭투자
+[부동산용어](https://github.com/kso1204/TIL/blob/main/RealEstate/RealEstateWord.md)
