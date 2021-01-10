@@ -133,5 +133,8 @@ PER보다 기업의 성장성을 더 반영한 PEGR은 월스트리트의 전설
 
 https://layhope.tistory.com/505
 
+20. 현금흐름표
+
+21. 손익계산서
 
 
