@@ -6,11 +6,12 @@
 
 둘째, 첫째항을 항상 지킨다.
 
-2. 벤저민 그레이엄 (Benjamin Graham)
+2. [벤저민 그레이엄 (Benjamin Graham)](https://github.com/kso1204/TIL/blob/main/Stock/Benjamin.md)
 
 증권분석의 창시자이자 아버지로 불리우며 가치투자 이론을 만든 인물이다.
 
 지금도 그가 남긴 《증권 분석》과 대중적인 투자 지침서 《현명한 투자자》, 재무 분석의 기초를 다진 《재무제표의 해석》 등은 월스트리트의 고전으로 손꼽힌다.
+
 
 3. 존 템플턴 (Sir John Templeton)
 

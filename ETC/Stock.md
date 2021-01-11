@@ -22,6 +22,10 @@
 
 # 블로그
 
+# 인물
+
+[주식인물](https://github.com/kso1204/TIL/blob/main/Stock/StockPerson.md)
+
 # 용어
 
 [주식용어](https://github.com/kso1204/TIL/blob/main/Stock/StockWord.md)
