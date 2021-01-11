@@ -6,11 +6,26 @@
 
 2. 주식시장의 마법사들 (30%)
 
+3. 현명한 투자자
+
+4. 박 회계사의 완벽한 재무제표 활용법
+
+5. 전설로 떠나는 월가의 영웅
+
+6. 벤저민 그레이엄의 증권분석
+
+7. 피터린치의 이기는 투자 (밀리X)
+
+8. 위대한기업에 투자하라 (밀리X)
+
+9. 돈, 뜨겁게 사랑하고 차갑게 다루어라 (밀리X)
+
 # 블로그
 
 # 용어
 
 [주식용어](https://github.com/kso1204/TIL/blob/main/Stock/StockWord.md)
+[한줄단어정리](https://github.com/kso1204/TIL/blob/main/Stock/Word.md)
 
 # 경제금융용어 700선 
 
@@ -24,3 +39,6 @@
 4. [Day-4](https://github.com/kso1204/TIL/blob/main/Stock/Day4.md)
 5. [Day-5](https://github.com/kso1204/TIL/blob/main/Stock/Day5.md)
 6. [Day-6](https://github.com/kso1204/TIL/blob/main/Stock/Day6.md)
+7. [Day-7](https://github.com/kso1204/TIL/blob/main/Stock/Day7.md)
+8. [Day-8](https://github.com/kso1204/TIL/blob/main/Stock/Day8.md)
+9. [Day-9](https://github.com/kso1204/TIL/blob/main/Stock/Day9.md)
