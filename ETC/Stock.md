@@ -22,6 +22,19 @@
 
 # 블로그
 
+https://jack-jack.tistory.com/290?category=857004
+
+https://sexyon.tistory.com/23?category=769742
+
+https://layhope.tistory.com/505
+
+
+# 유튜브
+
+
+
+
+
 # 인물
 
 [주식인물](https://github.com/kso1204/TIL/blob/main/Stock/StockPerson.md)
