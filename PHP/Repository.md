@@ -30,6 +30,8 @@ DB 사용 Repository
 
 DB사용 userRepository?
 
+API 형태로 제작한다고 하면 이럴 때 사실상.. 6개의 컨트롤러가 필요한 것일까?
+
 
 
 ```
