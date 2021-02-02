@@ -78,3 +78,4 @@ https://layhope.tistory.com/505
 24. [Day-24](https://github.com/kso1204/TIL/blob/main/Stock/Day24.md)
 25. [Day-25](https://github.com/kso1204/TIL/blob/main/Stock/Day25.md)
 26. [Day-26](https://github.com/kso1204/TIL/blob/main/Stock/Day26.md)
+27. [Day-27](https://github.com/kso1204/TIL/blob/main/Stock/Day27.md)
