@@ -228,4 +228,46 @@ public function register()
     });
 }
 
+싱글턴으로 반환하길 원하는 객체의 인스턴스를 이미 가지고 있는 경우
+
+public function register()
+{
+    $logger = new Logger('\log\path\here', 'error');
+    $this->app->instance(Logger::class, $logger);
+}
+
+# 인스턴스를 인터페이스에 바인딩하기
+
+클래스명에 인스턴스를 바인드하거나 단축 문자열 키에 클래스를 바인드한 것처럼 인터페이스에서도 바인드할 수 있다.
+
+use Interfaces\Mailer as MailerInterface;
+
+class UserMailer
+{
+    protected $mailer;
+
+    public function __construct(MailerInterface $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+}
+
+//Service Provider
+
+public function register()
+{
+    $this->app->bind(\Interfaces\Mailer::class, function () {
+        return new MailgunMailer(...);
+    });
+}
+
+이제 Mailer나 Logger 인터페이스를 코드 전반에 걸쳐 타입힌트할 수 있고, 모든곳에서 사용할 특정 메일러나 로거를 서비스 프로바이더에서 한 번만 선택하면 된다.
+
+바로 제어의 역전을 구현한 것이다.
+
+이  패턴을 사용함으로써 얻을 수 있는 가장 큰 이점은 다음과 같다.
+
+나중에 Mailgun이 아닌 다른 메일 송신 서비스를 사용하기로 했을 때, 새로운 송신 서비스용 메일 클래스가 Mailer 인터페이스를 구현하기만 하면, 서비스 프로바이더에서 코드 교체만해도 잘 작동한다.
+
+나머지 코드에는 손을 대지 않아도 된다. 바로 코드의 재사용이 가능해지는 것이다.
 
