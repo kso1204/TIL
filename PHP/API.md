@@ -104,5 +104,78 @@ return new DogResource(Dog::find($dogId));
 
 # 리소스 컬렉션
 
-만약 주어진 API 엔드포인트에 반환해야 할 엔티티가 여러 개일 때는 어떻게 하는지
+만약 주어진 API 엔드포인트에 반환해야 할 엔티티가 여러 개일 때는 어떻게 하는지 살펴보자.
+
+API 리소스 클래스의 collection() 메서드를 사용하면 된다.
+
+return DogResource::collection(Dog::all());
+
+이 메서드는 전달받은 모든 엔티티를 순회하며 DogResource로 변환하고 컬렉션을 반환한다.
+
+경우에 따라 컬렉션 응답의 구조를 조금이라도 변경하고 싶거나, 메타데이터를 추가하려면 커스텀 API 리소스 컬렉션을 만들어서 해결한다.
+
+php artisna make:resource DogCollection
+
+이 명령어를 실행하면 app/Http/Resources/DogCollection.php에 API 리소스 클래스와 아주 흡사한 toArray() 메서드 하나를 갖고 있는 파일이 하나 생성된다.
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class DogCollection extends ResourceCollection
+{
+    public function toArray($request)
+    {
+        return parent::toArray($request);
+    }
+}
+
+API 리소스 클래스와 마찬가지로 요청과 처리할 데이터에 접근한다. 하지만 API 리소스 클래스와는 달리 단일 항목을 다루지 않고 컬렉션을 다룬다.
+따라서 컬렉션을 $this->collection으로 접근한다.
+
+class DogCollection extends ResourceCollection
+{
+    public function toArray($request)
+    {
+        'data' => $this->collection,
+        'links => [
+            'self' => route('dogs.index'),
+        ],
+    };
+}
+
+# 중첩된 연관관계 표현하기
+
+API의 복잡한 점 중 하나가 연관관계를 표현하는 방법이다.
+
+API 리소스를 사용하여 연관관계를 처리할 수 있는 가장 간단한 방법은 반환하는 배열에 API 리소스 컬렉션을 설정한 키를 추가하는 것이다.
+
+class DogCollection extends ResourceCollection
+{
+    public function toArray()
+    {
+        return [
+            'name' => $this->name,
+            'breed' => $this->breed,
+            'friends' => DogResource::collection($this->friends),
+        ];
+    }
+}
+
+조건에 따라 연관관계가 중첩되게 하는 방법
+
+public function toArray()
+{
+    return [
+        'name' => $this->name,
+        'breed' => $this->breed,
+        //이미 관계를 가지고 잇는 경우에만 연관관계를 추가
+        'bones' => BoneResource::collection($this->whenLoaded('bones')),
+        //또는 URL이 요청하는 경우에만 연관관계를 추가
+        'bones' => $this->when(
+            $request->get('include') === 'bones',
+            BoneResource::collection($this->bones)
+        ),
+    ];
+}
 
