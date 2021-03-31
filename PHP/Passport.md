@@ -36,7 +36,7 @@
 스코프는 소비 애플리케이션이 작업을 수행하는 데 필요한 접근 범위를 사용자와 API 소비 애플리케이션이 정의할 수 있게 한다.
 
 AuthServiceProvider의 boot() 메서드에서 스코프를 정의할 수 있다.
-
+```
 //AuthServiceProvider
 
 use Laravel\Passport\Passport;
@@ -49,28 +49,40 @@ public function boot()
         'admin-account' => '관리자 계정 상세 정보',
     ]);
 }
+```
 
 스코프를 정의해두면 소비 애플리케이션은 접근하고자 하는 스코프를 정의할 수 있다.
-
+```
 Route::get('tweeter/redirect', function () {
+
     $query = http_build_query([
+
         'client_id' => config('tweeter.id'),
+
         'redirect_uri' => url('tweeter/callback'),
+
         'response_type' => 'code',
+
         'scope' => 'list-clips add-delete-clips',
     ]);
 
     return redirect('http://tweeter.test/oauth/authorize?. $query);
+
 });
+```
 
 사용자가 이 애플리케이션에 권한을 요청할 때 요청받은 스코프 목록을 보여준다.
 
 미들웨어나 user 객체에서 스코프를 확인 가능하다.
 
 Route::get('/events', function () {
+
     if (auth()->user()->tokenCan('add-delete-clips')) {
+
         //
+
     }
+
 });
 
 토큰 권한 확인에 사용할 수 있는 미들웨어도 2개 있다. scope와 scopes다.
@@ -78,16 +90,21 @@ Route::get('/events', function () {
 이 두 미들웨어를 사용하기 위해서는 app/Http/Kernel.php 파일에 있는 $routeMiddleware에 추가해야한다.
 
 'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
+
 'scope' => \Laravel\Passport\Http\Middelware\CheckForAnyScope::class,
 
 scopes는 라우트에 접근하기 위해 사용자 토큰이 정의된 모든 스코프를 가져야 하는 반면, scope는 정의된 스코프 중 하나 이상만 있으면 된다.
 
 Route::get('clips', function() {
+
     // 액세스 토큰이 'list-clips'와 'add-delete-clips' 스코프 둘 다 가지고 있다.
+
 })->middleware('scopes::list-clips, add-delete-clips');
 
 Route::get('clips', function() {
+
     // 액세스 토큰이 'list-clips'와 'add-delete-clips' 스코프 중 하나 이상을 가지고 있다.
+
 })->middleware('scope::list-clips, add-delete-clips');
 
 # 라라벨 생텀을 이용한 API 인증
