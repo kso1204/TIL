@@ -74,3 +74,41 @@ class AssignmentCreated extends Mailable
 
 Mail:to($user)->send(new AssignmentCreated($trainer, $trainee));
 
+# 큐
+
+애플리케이션에서 이메일을 전송하는 기능은 응답 시간을 느리게 만들 수 있는 작업이다.
+
+따라서 이를 사용자의 요청/응답 과정에서 처리하지 않고, 별도의 백그라운드 큐로 옮겨 비동기로 처리하는 것이 일반적이다.
+
+사실 너무 일반적이어서 라라벨은 이메일 전송을 위한 큐잡을 작성하지 않고도 바로 큐를 사용하여 메시지를 쉽게 처리할 수 있는 기능을 제공한다.
+
+queue()
+
+즉시 전송하는 매일 객체를 큐에 넣는다.
+
+간단하게 메일러블 객체를 Mail::send() 대신 Mail::queue()에 넘겨준다.
+
+Mail::queue(new AssignmentCreated($trainer, $trainee));
+
+later()
+
+Mail::later()는 Mail::queue()와 똑같이 작업하지만 이메일을 언제 큐에서 가져와서 보낼지 정하고 지연하게 해준다.
+
+몇 분 지연할지 지정할 수도 있고 DateTime이나 Carbon 인스턴스를 이용해서 특정 시각을 지정해줄 수 있다.
+
+$when = now()->addMinutes(30);
+
+Mail::later($when, new AssignmentCreated($trainer, $trainee));
+
+queue()와 later() 둘 다 메일이 추가될 큐나 큐 커넥션을 지정하고 싶으면 메일러블 객체에서 onConnection()과 onQueue()메서드를 사용한다.
+
+$message = (new AssignmentCreated($trainer, $trainee))->onConnection('sqs')->onQueue('emails');
+
+Mail:to($user)->queue($message);
+
+지정된 메일러블을 언제나 큐로 처리하고 싶으면 메일러블이 Illuminate\Contracts\Queue\ShouldQueue 인터페이스를 구현하게 한다.
+
+# Mailtrap.io
+
+메일트랩은 개발 환경에서 이메일을 대신 수신하고 검사하는 데 사용하는 서비스다.
+
