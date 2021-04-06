@@ -117,13 +117,172 @@ protected abstract Responder responderBeingTested();
 - 어떤 시스템을 구현할 때, 새로운 자료 타입을 추가하는 유연성이 필요하면 객체가 더 적합하다.
 - 다른 경우로 새로운 동작을 추가하는 유연성이 필요하면 자료 구조와 절차적인 코드가 더 적합하다.
 
-
-
-
-
 7. 오류 처리
 
+- 오류 코드보다 예외를 사용하라. 오류가 생기면 예외를 던져라
+- Try-Catch-Finally 문부터 작성해라
+- 호출자를 고려해 예외 클래스를 정의하라.
+
+오류를 형편없이 분류한 사례
+
+```
+
+ACMEPort port = new ACMEPort(12);
+
+try {
+    port.open();
+} catch (DeviceResponseException e) {
+    reportPortError(e);
+    logger.log("Device response exception", e);
+} catch (ATMlockedException e) {
+    reportPortError(e);
+    logger.log("Unlock exception", e);
+} catch (GXEerror e) {
+    reportPortError(e);
+    logger.log("Device response exception");
+} finally {
+    ...
+}
+
+코드를 간결하게 고쳐보기
+
+LocalPort port = new LocalPort(12);
+
+try {
+    port.open();
+} catch (ProtDeviceFailure e) {
+    reportError(e);
+    logger.log(e.getMessage(), e);
+} finally {
+    ...
+}
+
+여기서 LocalPort 클래스는 단순히 ACMEPort 클래스가 던지는 예외를 잡아 변환하는 감싸기 클래스일 뿐이다.
+
+public class LocalPort {
+    private ACMEPort innerPort;
+
+    public LocalPort(int portNumber) {
+        innerPort = new ACMEPort(portNumber);
+    }
+}
+
+public void open() {
+    try {
+        innerPort.open();
+    } catch (DeviceResponseException e) {
+        throw new PortDeviceFailure(e);
+    } catch (ATMUnlockedException e) {
+        throw new PortDeviceFailure(e);
+    } catch (GMXerror e) {
+        throw new PortDeviceFailure(e);
+    }
+}
+
+```
+
+LocalPort 클래스처럼 ACMEPort를 감싸는 클래스는 매우 유용하다.
+
+실제로 외부 API를 사용할 때는 감싸기 기법이 최선이다.
+
+외부 API를 감싸면 외부 라이브러리와 프로그램 사이에서 의존성이 크게 줄어든다.
+
+- 정상 흐름을 정의하라 
+
+비용 청구 애플리케이션에서 총계를 계산하는 허술한 코드
+
+```
+
+try {
+    MealExpenses expenses = expenseReportDAO.getMeals(employee.getID());
+    m_total += expenses.getTotal();
+} catch (MealExpensesNotFound e) {
+    m_total += getMealPerDiem();
+}
+
+식비를 비용으로 청구했다면 직원이 청구한 식비를 총계에 더한다.
+
+식비를 비용으로 청구하지 않았다면 일일 기본 식비를 총계에 더한다.
+
+예외가 논리를 따라가기 어렵게 만든다.
+
+특수 상황을 처리할 필요가 없다면 더 좋지 않을까?
+
+MealExpenses expenses = expenseReportDAO.getMeals(employee.getID());
+m_total += expenses.getTotal();
+
+위처럼 간결한 코드가 가능할까?
+
+ExpensesReportDAO를 고쳐 언제나 MealExpense 객체를 반환한다.
+
+청구한 식비가 없다면 일일 기본 식비를 반환하는 MealExpense 객체를 반환한다.
+
+public class PerDiemMealExpenses implements MealExpenses {
+    public function getTotal() {
+        // 기본값으로 일일 식비를 반환한다.
+    }
+}
+
+```
+
+- null을 반환하지 마라
+- null을 전달하지 마라
+
 8. 경계
+
+- 시스템에 들어가는 모든 소프트웨어를 직접 개발하는 경우는 드물다.
+- 외부 코드 사용하기
+- 인터페이스 제공자와 인터페이스 사용자 사이에는 특유의 긴장이 존재한다.
+- 패키지 제공자나 프레임워크 제공자는 적용성을 최대한 넓히려 애쓰고, 사용자는 자신의 요구에 집중하는 인터페이스를 바란다.
+
+ex) JAVA.utils.map
+
+- map 사용자라면 누구나 map을 지울 권한이 있다.
+- map은 객체 유형을 제한하지 않기 때문에 마음만 먹으면 사용자는 어떤 객체 유형도 추가할 수 있다.
+- 제네릭스를 사용해서 코드 가용성을 높인다 하더라도, 필요하지 않은 기능까지 제공하는 것은 막을 수 없다.
+
+```
+ex) Map<string, Sensor> sensor = new HaspMap<Sensor>();
+
+Sensor S = sensors.get(sensorId);
+```
+
+Map을 좀 더 깔끔하게 사용한 코드
+
+Sensor 사용자는 제네릭스가 사용되었는지 여부에 신경 쓸 필요가 없다.
+
+제네릭스의 사용 여부는 Sensor 안에서 결정한다.
+
+```
+public class Sensors {
+    private Map Sensors = new HashMap();
+
+    public Sensor getById(String id) {
+        return (Sensor) sensors.get(id);
+    }
+}
+```
+
+경계 인터페이스인 map을 sensors 안으로 숨긴다. 따라서 map 인터페이스가 변하더라도 나머지 프로그램에는 영향을 미치지 않는다.
+
+제네릭스를 사용하든 하지 않든 더 이상 문제가 안 된다.
+
+sensor 클래스 안에서만 객체 유형을 관리하고 변환하기 때문이다.
+
+또한 sensor 클래스는 프로그램에 필요한 인터페이스만 제공한다.
+
+그래서 코드는 이해하기 쉽고 오용하기 어렵다.
+
+sensors 클래스는 나머지 프로그램이 설계 규칙과 비즈니스 규칙을 따르도록 강제할 수 있다.
+
+- 경계 살피고 익히기
+- 곧바로 우리쪽 코드를 작성해 외부 코드를 호출하는 대신 먼저 간단한 테스트 케이스를 작성해 외부 코드를 익힌다.
+- 이를 학습 테스트라 부른다.
+- 아직 존재하지 않는 코드를 사용하기
+- 경계와 관련해 또 다른 유형은 아는 코드와 모르는 코드를 분리하는 경계다.
+- 우리가 바라는 인터페이스를 구현하면 우리가 인터페이스를 전적으로 통제한다는 장점이 생긴다.
+- 또한 코드 가독성도 높아지고 코드 의도도 분명해진다.
+- 우리는 우리가 통제하지 못하며 정의되지도 않은 API에서 controller를 분리했다.
 
 9. 단위 테스트
 
