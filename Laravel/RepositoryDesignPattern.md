@@ -209,7 +209,7 @@ ex)
 
 namespace App\Repository;
 
-class PostRepositoryInterface implements PostRepositoryInterface
+class PostRepositoryFirebase implements PostRepositoryInterface
 {
     public function getAll()
     {
