@@ -185,3 +185,4 @@ $collection->join(' ,', ', and');
 
 composer require tightenco/collect 명령어를 실행하기만 하면 Illuminate\Support\Collction 클래스와 collect() 헬퍼를 사용할 수 있다.
 
+https://mattstauffer.com/blog/laravel-collections-higher-order-messaging-and-when-method-in-laravel-5-4/
