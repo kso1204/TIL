@@ -60,8 +60,9 @@
 
 # 기타
 
-* [클린코드](https://github.com/kso1204/TIL/blob/main/ETC/Docker.md)
-* [클린아키텍쳐](https://github.com/kso1204/TIL/blob/main/ETC/Docker.md)
+* [클린코드](https://github.com/kso1204/TIL/blob/main/CleanCode/README.md)
+* [클린아키텍쳐](https://github.com/kso1204/TIL/blob/main/CleanArchitecture/README.md)
+* [HTTP완벽가이드](https://github.com/kso1204/TIL/blob/main/HTTP/README.md)
 * [Docker](https://github.com/kso1204/TIL/blob/main/ETC/Docker.md)
 * [Redis](https://github.com/kso1204/TIL/blob/main/ETC/Redis.md)
 * [AWS](https://github.com/kso1204/TIL/blob/main/ETC/AWS.md)
