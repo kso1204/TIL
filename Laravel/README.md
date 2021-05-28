@@ -20,3 +20,6 @@
 
 5. 비즈니스 로직은 서비스로 빼서 사용한다..
 
+# Relation With
+
+- https://stackoverflow.com/questions/18963483/retrieving-relationships-of-relationships-using-eloquent-in-laravel
