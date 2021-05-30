@@ -95,3 +95,113 @@ for (int i = 2 ; i<=n ;i++) {
 }
 
 ```
+
+
+# BFS 인접 행렬 (큐)
+
+```
+
+Queue<Integer> queue = new LinkedList();
+
+visited[1] = true;
+
+queue.offer(1);
+
+while(!queue.isEmpty()) {
+
+    int x = queue.poll();
+
+    System.out.println(x);
+
+    for (int i=0; i<= N; i++) {
+
+        if(graph[x][i] == 1 && !visited[i]) {
+            
+            visited[i] = true;
+            
+            queue.offer(i);
+
+        }
+
+    }
+
+}
+
+```
+
+# BFS 인접 리스트 (큐)
+
+```
+
+Queue<Integer> queue = new LinkedList();
+
+visited[1] = true;
+
+queue.offer(1);
+
+while(!queue.isEmpty()) {
+
+    int x = queue.poll();
+
+    System.out.println(x);
+
+    for (int i=0; i<=N; i++) {
+
+        int y = graph[x][i];
+
+        if(!visited[y]) {
+            
+            visited[y] = true;
+
+            queue.offer(y);
+
+        }
+    }
+
+}
+
+
+# DFS 인접 행렬 (재귀)
+
+```
+
+void dfs(int x) {
+        
+    visited[x] = true;
+    
+    System.out.println(x);
+    
+    for (int i=0; i<= N; i++) {
+        
+        if(graph[x][i] == 1 && !visited[i]) {
+            dfs(i);
+        }
+        
+    }
+}
+
+```
+
+# DFS 인접 리스트 (재귀)
+
+```
+
+void dfs(int x) {
+    
+    visited[x] = true;
+
+    System.out.println(x);
+
+    for (int i=0; i<= N; i++) {
+        
+        int y = graph[x][i];
+
+        if(!visited[y]) {
+            dfs(y);
+        }
+
+    }
+
+}
+
+```
