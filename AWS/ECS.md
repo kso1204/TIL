@@ -103,3 +103,7 @@ Amazon ECR의 기능
 ```
 
 # ECS
+
+1. 클러스트 생성
+
+2. Fargate, ec2
