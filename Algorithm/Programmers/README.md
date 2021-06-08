@@ -8,6 +8,8 @@
 
 4. https://coding-factory.tistory.com/602
 
+5. https://bestalign.github.io/2015/08/31/top-10-mistakes-java-developers-make-1/
+
 # 다시 풀어볼 문제
 
 1. 단체사진 찍기, 카카오프렌즈, 튜플, 행렬 테두리, 순위검색**, 다리를 지나는 트럭**, 배달**(다익스트라 알고리즘), 메뉴리뉴얼**(combination)
