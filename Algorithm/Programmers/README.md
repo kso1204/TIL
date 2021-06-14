@@ -30,6 +30,8 @@
 
 8. 거스름돈 (DP) => 2차원 배열 DP DP[i][j];
 
+9. 스타 수열 => map value 정렬 
+
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
 
 // 1~n자리 순열
@@ -259,5 +261,31 @@ lastBit와 number를 or연산하면 10011111
 ```
 
 - Integer.bitCount(n);
+
+```
+
+# Entry를 사용한 Map Value 정렬 오름차순
+
+```
+
+List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(hashMap.entrySet());
+entryList.sort((o1, o2) -> hashMap.get(o1.getKey()) - hashMap.get(o2.getKey()));
+
+for(Map.Entry<Integer, Integer> entry : entryList) {
+    System.out.println("key" + entry.getKey() +", value : "+ entry.getValue());
+
+}
+```
+
+# Enrty를 사용한 Map Value 정렬 내림차순
+
+```
+
+List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(hashMap.entrySet());
+entryList.sort((o1, o2) -> hashMap.get(o2.getKey()) - hashMap.get(o1.getKey()));
+
+for(Map.Entry<Integer, Integer> entry : entryList) {
+    System.out.println("key" + entry.getKey() +", value : "+ entry.getValue());
+}
 
 ```
