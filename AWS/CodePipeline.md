@@ -397,3 +397,11 @@ AWS Security Token Service를 사용하여 요청에 서명하는 데 사용할 
 4. 여기서 지정하는 태스크정의를 나중에 소스코드로 (taskdef.json)전송하긴 하는데 이 내용이랑 겹치는지 ? 뭐가 어떻게 되는지 아직 파악 X
 
 5. 
+
+# taskdef
+
+1. taskDef의 DB_PASSWORD
+
+2. https://ap-northeast-2.console.aws.amazon.com/systems-manager/parameters/?region=ap-northeast-2&tab=Table
+
+3. 
