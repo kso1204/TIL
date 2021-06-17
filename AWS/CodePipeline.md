@@ -417,3 +417,5 @@ AWS Security Token Service를 사용하여 요청에 서명하는 데 사용할 
 4. 코드파이프라인 쪽 Aws codedeploy Appspec 파일이 등록되어 있었는데 이 부분 삭제해봄..
 
 5. 배포그룹 ~ 대상그룹.. 사이에서 문제가 발생한 것 같은데
+
+6. ECS에서 해당 컨테이너 정보 DB_PASSWORD 등등 잘 올라왔는지 태스크 정의에서 확인.. taskdef의 DB_PASSWORD 경로가 오류나서 문제가 생겼다.
