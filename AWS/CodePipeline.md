@@ -404,4 +404,16 @@ AWS Security Token Service를 사용하여 요청에 서명하는 데 사용할 
 
 2. https://ap-northeast-2.console.aws.amazon.com/systems-manager/parameters/?region=ap-northeast-2&tab=Table
 
-3. 
+# 파이프라인 오류날 때..
+
+1. The deployment timed out while waiting for the replacement task set to become healthy. This time out period is 60 minutes.
+
+-> 대상 그룹이 unhealthy인지 확인하고..
+
+2. 인스턴스가 죽었는지 확인
+
+3. 로드밸런스에 다음 타겟그룹이 정상적으로 올라와있는지 확인
+
+4. 코드파이프라인 쪽 Aws codedeploy Appspec 파일이 등록되어 있었는데 이 부분 삭제해봄..
+
+5. 배포그룹 ~ 대상그룹.. 사이에서 문제가 발생한 것 같은데
