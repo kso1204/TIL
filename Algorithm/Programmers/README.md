@@ -38,7 +38,11 @@
 
 12. 블록 이동하기 ** => BFS
 
+13. 카드 짝 맞추기 *** => BFS + 순열
+
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
+
+```
 
 // 1~n자리 순열
 
@@ -48,7 +52,7 @@ void permutation(String prefix, String str) {
     
     int n = str.length();
 
-    if(!prefix.equals("")) System.out.println(Integer.valueOf(str));
+    if(!prefix.equals("")) System.out.println(Integer.valueOf(prefix));
     for (int i=0; i<n; i++) {
         permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
     }
@@ -60,11 +64,30 @@ void permutation(String prefix, String str) {
 void permutation(String prefix, String str) {
     int n = str.length();
 
-    if(n == 0) System.out.println(Integer.valueOf(str));
+    if(n == 0) System.out.println(Integer.valueOf(prefix));
     for(int i=0; i<n; i++) {
         permutation(prefix + str.charAt(i), str.substring(0,i) + str.substring(i+1,n));
     }
 }
+
+// depth 와 배열로 순열 만들기
+
+void permutation(String str, int depth, int[] card)
+{
+    if(card.length == depth) {
+        list.add(str);
+        return;
+    }
+    
+    for(int i=0;i<card.length;i++) {
+        int num = card[i];
+        if(!comb.contains(""+num)) {
+            permutation(str+num, depth+1, card);
+        }
+    }
+}
+
+ ```   
 
 # HashMap Value 정렬
 
