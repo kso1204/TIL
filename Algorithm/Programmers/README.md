@@ -87,6 +87,27 @@ void permutation(String str, int depth, int[] card)
     }
 }
 
+
+void permutation(boolean[] visited, int[] dist, int idx) 
+    {
+        if (idx == dist.length) {
+            list.add(dist); // dist Array를 arrayList에 넣는 상황
+            return;
+            for(int[] weak_case : weak_cases) {
+                check(dist, weak_case); // dist Array를 그대로 활용하는 상황
+            }
+        }
+        
+        for(int i=0; i<dist.length; i++) {
+            if(!visited[i]) {
+                visited[i] = true;
+                dist[idx] = dist[i];
+                makeDistCases(visited, dist, idx+1);
+                dist[idx] = 0;
+                visited[i] = false;
+            }
+        }
+    }
  ```   
 
 # HashMap Value 정렬
@@ -112,6 +133,33 @@ for(String key : sortList) {
 }
 
 엄밀히 말하면 hashMap 자체를 정렬시키는 것은 아니지만 정렬된 데이터를 가져올 수 있다.
+
+```
+
+
+# Entry를 사용한 Map Value 정렬 오름차순
+
+```
+
+List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(hashMap.entrySet());
+entryList.sort((o1, o2) -> hashMap.get(o1.getKey()) - hashMap.get(o2.getKey()));
+
+for(Map.Entry<Integer, Integer> entry : entryList) {
+    System.out.println("key" + entry.getKey() +", value : "+ entry.getValue());
+
+}
+```
+
+# Enrty를 사용한 Map Value 정렬 내림차순
+
+```
+
+List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(hashMap.entrySet());
+entryList.sort((o1, o2) -> hashMap.get(o2.getKey()) - hashMap.get(o1.getKey()));
+
+for(Map.Entry<Integer, Integer> entry : entryList) {
+    System.out.println("key" + entry.getKey() +", value : "+ entry.getValue());
+}
 
 ```
 
@@ -293,28 +341,35 @@ lastBit와 number를 or연산하면 10011111
 
 ```
 
-# Entry를 사용한 Map Value 정렬 오름차순
+# Rotate
 
 ```
 
-List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(hashMap.entrySet());
-entryList.sort((o1, o2) -> hashMap.get(o1.getKey()) - hashMap.get(o2.getKey()));
+n;
+int[][] rotate;
+int[] weak;
 
-for(Map.Entry<Integer, Integer> entry : entryList) {
-    System.out.println("key" + entry.getKey() +", value : "+ entry.getValue());
+public void setRotate() {
+    int len = weak.length;
+    rotate = new int[len][len];
 
+    for (int i=0; i<len; i++) {
+        rotate[i] = rotate(weak, i);
+    }
 }
-```
 
-# Enrty를 사용한 Map Value 정렬 내림차순
-
-```
-
-List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(hashMap.entrySet());
-entryList.sort((o1, o2) -> hashMap.get(o2.getKey()) - hashMap.get(o1.getKey()));
-
-for(Map.Entry<Integer, Integer> entry : entryList) {
-    System.out.println("key" + entry.getKey() +", value : "+ entry.getValue());
+public int[] rotate(int[] weak, int idx) 
+{
+    int len = weak.length;
+    int[] result = new int[len];
+    for (int i=0; i<len; i++) {
+        if (i+idx<len) {
+            result[i] = weak[i+idx];
+        } else {
+            result[i] = weak[i+idx-len] + n;
+        }
+    }
+    return result;
 }
 
 ```
