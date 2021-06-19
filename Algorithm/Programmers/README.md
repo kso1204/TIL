@@ -40,6 +40,8 @@
 
 13. 카드 짝 맞추기 *** => BFS + 순열
 
+14. 외벽 점검 *** => 완전탐색 + 순열 + 원형배열 만들기
+
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
 
 ```
@@ -371,5 +373,40 @@ public int[] rotate(int[] weak, int idx)
     }
     return result;
 }
+
+```
+
+# Edge 그래프
+
+```
+
+
+class Edge
+{
+        
+    int vertex;
+    int distance;
+    
+    Edge (int vertex, int distance) 
+    {
+        this.vertex = vertex;
+        this.distance = distance;
+    }
+    
+}
+    
+ArrayList<Edge> graph[];
+
+for(int i=0; i<=N; i++){
+    graph[i] = new ArrayList<>();
+}
+
+for (int i=0; i<road.length; i++) {
+        
+    graph[road[i][0]].add(new Edge(road[i][1], road[i][2]));
+    graph[road[i][1]].add(new Edge(road[i][0], road[i][2]));
+            
+}
+
 
 ```
