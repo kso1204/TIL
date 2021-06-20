@@ -304,6 +304,17 @@ void dfs(int x) {
 
 }
 
+void dfs(int vertex)
+    {
+        visited[vertex] = true;
+        
+        for (int edge : graph[vertex]) {
+            if (!visited[edge]) {
+                dfs(edge);
+            }
+        }
+    }
+
 ```
 
 # 최하위비트 구하기
