@@ -16,13 +16,13 @@
 
 1. 단체사진 찍기, 카카오프렌즈, 튜플, 행렬 테두리, 순위검색**, 다리를 지나는 트럭**, 배달**(다익스트라 알고리즘), 메뉴리뉴얼**(combination)
 
-2. 가장 큰 정사각형 (DP) **
+2. 가장 큰 정사각형 (DP) \*\*
 
-3. [3차] 파일명 정렬 (정렬하는 방법) **
+3. [3차] 파일명 정렬 (정렬하는 방법) \*\*
 
-4. N-Queen (BackTracking) **
+4. N-Queen (BackTracking) \*\*
 
-5. 하노이탑 **
+5. 하노이탑 \*\*
 
 6. 멀리뛰기 (DP) => dp[i] = dp[i-1] + dp[i-2];
 
@@ -30,19 +30,19 @@
 
 8. 거스름돈 (DP) => 2차원 배열 DP DP[i][j];
 
-9. 스타 수열 => map value 정렬 
+9. 스타 수열 => map value 정렬
 
 10. 풍선 터트리기 => 양쪽의 index를 가져가면서 대소를 비교하는 방법
 
-11. 매칭 점수 ** => 정규식 
+11. 매칭 점수 \*\* => 정규식
 
-12. 블록 이동하기 ** => BFS + Vertical + Time 
+12. 블록 이동하기 \*\* => BFS + Vertical + Time
 
-13. 카드 짝 맞추기 *** => BFS + 순열
+13. 카드 짝 맞추기 \*\*\* => BFS + 순열
 
-14. 외벽 점검 *** => 완전탐색 + 순열 + 원형배열 만들기
+14. 외벽 점검 \*\*\* => 완전탐색 + 순열 + 원형배열 만들기
 
-15. 110 옮기기 ** => Stack + StringBuffer Index 선형 시간으로 해결되지 않는 문제
+15. 110 옮기기 \*\* => Stack + StringBuffer Index 선형 시간으로 해결되지 않는 문제
 
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
 
@@ -53,7 +53,7 @@
 permutation("", "123");
 
 void permutation(String prefix, String str) {
-    
+
     int n = str.length();
 
     if(!prefix.equals("")) System.out.println(Integer.valueOf(prefix));
@@ -82,7 +82,7 @@ void permutation(String str, int depth, int[] card)
         list.add(str);
         return;
     }
-    
+
     for(int i=0;i<card.length;i++) {
         int num = card[i];
         if(!comb.contains(""+num)) {
@@ -92,7 +92,7 @@ void permutation(String str, int depth, int[] card)
 }
 
 
-void permutation(boolean[] visited, int[] dist, int idx) 
+void permutation(boolean[] visited, int[] dist, int idx)
     {
         if (idx == dist.length) {
             list.add(dist); // dist Array를 arrayList에 넣는 상황
@@ -101,7 +101,7 @@ void permutation(boolean[] visited, int[] dist, int idx)
                 check(dist, weak_case); // dist Array를 그대로 활용하는 상황
             }
         }
-        
+
         for(int i=0; i<dist.length; i++) {
             if(!visited[i]) {
                 visited[i] = true;
@@ -112,7 +112,7 @@ void permutation(boolean[] visited, int[] dist, int idx)
             }
         }
     }
- ```   
+```
 
 # HashMap Value 정렬
 
@@ -139,7 +139,6 @@ for(String key : sortList) {
 엄밀히 말하면 hashMap 자체를 정렬시키는 것은 아니지만 정렬된 데이터를 가져올 수 있다.
 
 ```
-
 
 # Entry를 사용한 Map Value 정렬 오름차순
 
@@ -197,7 +196,6 @@ for (int i = 2 ; i<=n ;i++) {
 
 ```
 
-
 # BFS 인접 행렬 (큐)
 
 ```
@@ -217,9 +215,9 @@ while(!queue.isEmpty()) {
     for (int i=0; i<= N; i++) {
 
         if(graph[x][i] == 1 && !visited[i]) {
-            
+
             visited[i] = true;
-            
+
             queue.offer(i);
 
         }
@@ -251,7 +249,7 @@ while(!queue.isEmpty()) {
         int y = graph[x][i];
 
         if(!visited[y]) {
-            
+
             visited[y] = true;
 
             queue.offer(y);
@@ -268,17 +266,17 @@ while(!queue.isEmpty()) {
 ```
 
 void dfs(int x) {
-        
+
     visited[x] = true;
-    
+
     System.out.println(x);
-    
+
     for (int i=0; i<= N; i++) {
-        
+
         if(graph[x][i] == 1 && !visited[i]) {
             dfs(i);
         }
-        
+
     }
 }
 
@@ -289,13 +287,13 @@ void dfs(int x) {
 ```
 
 void dfs(int x) {
-    
+
     visited[x] = true;
 
     System.out.println(x);
 
     for (int i=0; i<= N; i++) {
-        
+
         int y = graph[x][i];
 
         if(!visited[y]) {
@@ -309,7 +307,7 @@ void dfs(int x) {
 void dfs(int vertex)
     {
         visited[vertex] = true;
-        
+
         for (int edge : graph[vertex]) {
             if (!visited[edge]) {
                 dfs(edge);
@@ -331,20 +329,20 @@ void dfs(int vertex)
 
 0의 최하위 비트는 ~A & A
 
-10001111이라고 하면 0의 최하위비트의 위치는 
+10001111이라고 하면 0의 최하위비트의 위치는
 
 00010000 해당 숫자를 구하는 방법이 lastBit
 
-long lastBit = ~number & (number + 1); 
+long lastBit = ~number & (number + 1);
 
 number = (number | lastBit) & ~(lastBit >> 1);
 
-lastBit와 number를 or연산하면 10011111 
+lastBit와 number를 or연산하면 10011111
 
 에서 lastBit를 한칸 오른쪽으로 민건 00001000 해당 1을 반대로 뒤집으면 0111이랑 10011111 & 연산하면
 
 10010111
-        
+
 
 ```
 
@@ -373,7 +371,7 @@ public void setRotate() {
     }
 }
 
-public int[] rotate(int[] weak, int idx) 
+public int[] rotate(int[] weak, int idx)
 {
     int len = weak.length;
     int[] result = new int[len];
@@ -396,18 +394,18 @@ public int[] rotate(int[] weak, int idx)
 
 class Edge
 {
-        
+
     int vertex;
     int distance;
-    
-    Edge (int vertex, int distance) 
+
+    Edge (int vertex, int distance)
     {
         this.vertex = vertex;
         this.distance = distance;
     }
-    
+
 }
-    
+
 ArrayList<Edge> graph[];
 
 for(int i=0; i<=N; i++){
@@ -415,10 +413,33 @@ for(int i=0; i<=N; i++){
 }
 
 for (int i=0; i<road.length; i++) {
-        
+
     graph[road[i][0]].add(new Edge(road[i][1], road[i][2]));
     graph[road[i][1]].add(new Edge(road[i][0], road[i][2]));
-            
+
+}
+
+
+```
+
+# 시간차 구하기
+
+```
+
+import java.time.*;
+
+public int getTime(String a, String b)
+{
+    String[] start = a.split(":");
+    String[] end = b.split(":");
+    
+    LocalTime startTime = LocalTime.of(Integer.valueOf(start[0]),Integer.valueOf(start[1]));  // LocalTime.of("시", "분");
+    LocalTime endTime = LocalTime.of(Integer.valueOf(end[0]),Integer.valueOf(end[1]));
+    
+    Duration duration = Duration.between(startTime, endTime);
+    
+    return (int) (duration.getSeconds() / 60);
+    
 }
 
 
