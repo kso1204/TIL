@@ -5,3 +5,5 @@
 2. https://jeonghwan-kim.github.io/2018/10/21/aws-sns-to-slack.html
 
 3. https://jojoldu.tistory.com/298
+
+4. https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/GettingStarted.CreateApp.html

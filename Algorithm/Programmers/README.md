@@ -44,6 +44,8 @@
 
 15. 110 옮기기 \*\* => Stack + StringBuffer Index 선형 시간으로 해결되지 않는 문제
 
+16. 광고 삽입 ** => 부분합 + 선형탐색
+
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
 
 ```
@@ -440,6 +442,25 @@ public int getTime(String a, String b)
     
     return (int) (duration.getSeconds() / 60);
     
+}
+
+
+```
+
+
+# 부분합 구하기
+
+```
+
+subSum[startIndex]++;
+subSum[lastIndex]--;
+
+for (int i = 1; i<subSum.length; i++) {
+    subSum[i] += subSum[i - 1];
+}
+
+for (int i = 1; i<subSum.length; i++) {
+    subSum[i] += subSum[i - 1];
 }
 
 
