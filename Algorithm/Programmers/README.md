@@ -12,6 +12,8 @@
 
 6. 뒤에 페이지가 더 쉬우니까 3레벨 부터는 뒤부터 풀기
 
+7. https://buddev.tistory.com/21 <-- 크루스칼 VS 다익스트라
+
 # 다시 풀어볼 문제
 
 1. 단체사진 찍기, 카카오프렌즈, 튜플, 행렬 테두리, 순위검색**, 다리를 지나는 트럭**, 배달**(다익스트라 알고리즘), 메뉴리뉴얼**(combination)
@@ -45,6 +47,8 @@
 15. 110 옮기기 \*\* => Stack + StringBuffer Index 선형 시간으로 해결되지 않는 문제
 
 16. 광고 삽입 ** => 부분합 + 선형탐색
+
+17. 징검다리 건너기 ** => 이분탐색
 
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
 
@@ -463,5 +467,158 @@ for (int i = 1; i<subSum.length; i++) {
     subSum[i] += subSum[i - 1];
 }
 
+
+```
+
+# 다익스트라 알고리즘
+
+```
+
+import java.util.*;
+
+class Solution {
+    
+    class Edge implements Comparable<Edge>{
+        int vertex;
+        int distance;
+        
+        Edge (int vertex, int distance)
+        {
+            this.vertex = vertex;
+            this.distance = distance;
+        }
+        
+        @Override
+        public int compareTo(Edge edge)
+        {
+            return this.distance - edge.distance;
+        }
+    }
+    
+    boolean[] visited;
+    int[] distance;
+    
+    public int solution(int n, int[][] costs) {
+        
+        int answer = 0;
+        
+        ArrayList<Edge> graph[] = new ArrayList[n+1];
+        visited = new boolean[n+1];
+        distance = new int[n+1];
+        
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        
+        for (int i=0; i<n; i++) {
+            graph[i] = new ArrayList<>();
+        }
+        
+        for (int i=0; i<costs.length; i++) {
+            graph[costs[i][0]].add(new Edge(costs[i][1], costs[i][2]));
+            graph[costs[i][1]].add(new Edge(costs[i][0], costs[i][2]));
+        }
+        
+        PriorityQueue<Edge> pq = new PriorityQueue<>();
+        
+        pq.offer(new Edge(1, 0));
+        
+        while (!pq.isEmpty()) {
+            
+            Edge current = pq.poll();
+            
+            visited[current.vertex] = true;
+            
+            distance[current.vertex] = Math.min(distance[current.vertex], current.distance);
+            
+            for (Edge next : graph[current.vertex]) {
+                
+                if (!visited[next.vertex]) {
+                    
+                    pq.offer(new Edge(next.vertex, current.distance + next.distance));
+                    
+                }
+                
+            }
+        }
+        
+        
+        
+        return answer;
+    }
+}
+
+```
+
+# 크루스칼 알고리즘
+
+```
+
+import java.util.*;
+
+class Solution {
+    
+    class Edge implements Comparable<Edge>{
+        int currentVertex;
+        int nextVertex;
+        int distance;
+        
+        Edge (int currentVertex, int nextVertex, int distance)
+        {
+            this.currentVertex = currentVertex;
+            this.nextVertex = nextVertex;
+            this.distance = distance;
+        }
+        
+        @Override
+        public int compareTo(Edge edge) 
+        {
+            return this.distance - edge.distance;
+        }
+    }
+    
+    int[] parent;
+    
+    public int solution(int n, int[][] costs) {
+        int answer = 0;
+        
+        parent = new int[n];
+        
+        for (int i=0; i<n; i++) {
+            parent[i] = i;
+        }
+        
+        PriorityQueue<Edge> pq = new PriorityQueue<>();
+        
+        for (int i=0; i<costs.length; i++) {
+            pq.offer(new Edge(costs[i][0], costs[i][1], costs[i][2]));
+        }
+        
+        while(!pq.isEmpty()) {
+            
+            Edge current = pq.poll();
+            
+            if(find(current.currentVertex) != find(current.nextVertex)) {
+                union(current.currentVertex, current.nextVertex);
+                answer += current.distance;
+            }
+            
+        }
+        
+        return answer;
+    }
+    
+    public int find(int x)
+    {
+        if (parent[x] == x) {
+            return x;
+        } else {
+            return find(parent[x]);
+        }
+    }
+    
+    public void union(int x, int y)
+    {
+        parent[find(x)] = find(y);
+    }
+}
 
 ```
