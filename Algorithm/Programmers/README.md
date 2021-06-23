@@ -50,6 +50,8 @@
 
 17. 징검다리 건너기 ** => 이분탐색
 
+18. 길찾기 게임 ** => Node Connect + Priority Queue
+
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
 
 ```
@@ -620,5 +622,62 @@ class Solution {
         parent[find(x)] = find(y);
     }
 }
+
+```
+
+# Node Connect + Priority Queue
+
+```
+
+class Node implements Comparable<Node>{
+        
+    int x;
+    int y;
+    int num;
+    Node left;
+    Node right;
+    
+    
+    Node (int x, int y, int num) {
+        this.x = x;
+        this.y = y;
+        this.num = num;
+    }
+    
+    @Override
+    public int compareTo(Node node) {
+        return node.y - this.y;
+    }
+}
+
+PriorityQueue<Node> pq = new PriorityQueue<>();
+        
+for (int i=0; i<n; i++) {
+    pq.offer(new Node(nodeinfo[i][0], nodeinfo[i][1], i+1));
+}
+
+Node root = pq.poll();
+
+
+public void connectNode(Node parent, Node child)
+    {
+        if (parent.x > child.x) {
+            
+            if (parent.left == null) {
+                parent.left = child;
+            } else {
+                connectNode(parent.left, child);
+            }
+            
+        } else {
+            
+            if (parent.right == null) {
+                parent.right = child;
+            } else {
+                connectNode(parent.right, child);
+            }
+                
+        }
+    }
 
 ```
