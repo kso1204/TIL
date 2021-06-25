@@ -404,9 +404,191 @@ AWS Security Token Service를 사용하여 요청에 서명하는 데 사용할 
 
 2. https://ap-northeast-2.console.aws.amazon.com/systems-manager/parameters/?region=ap-northeast-2&tab=Table
 
-# 파이프라인 오류날 때..
+# 파이프라인 오류날 때.. (Build)
+
+1. 권한 문제로 문제 생겼는데. ECR에서 해당 레포지토리 푸시하고..
+
+2. ECS에서 해당 작업 정의 서비스 생성하는 부분까지 로드밸런스 연결 다 하고 리스너 연결 다해도
+
+3. 권한 설정하는 부분에서 오류가 생기는데 ECR을 aws에 푸시할 수 있는 권한.. 인라인 정책으로 설정해야하고
+
+4. ECS Authorized 권한이 없는데, 이 부분은 기존 서비스롤을 그대로 복사하면 클러스트 or 서비스가 다르기 때문에 이 부분 권한도 맞춰줘야 한다.
+
+5. 레포지토리 정상적으로 푸쉬, ecs 태스크 정의, 서비스 정의, 권한 설정, 서브넷 설정 부분에 이상이 생기지 않으면 문제 X
+
+# 파이프라인 오류날 때.. (deploy)
 
 1. The deployment timed out while waiting for the replacement task set to become healthy. This time out period is 60 minutes.
+
+6. ECS에서 해당 컨테이너 정보 DB_PASSWORD 등등 잘 올라왔는지 태스크 정의에서 확인.. taskdef의 DB_PASSWORD 경로가 오류나서 문제가 생겼다.
+
+7. taskdef -> secret -> 에 써잇는 내용과 aws->system manager->parameter store 의 내용과 같은지 확인
+
+8. appspec의 서브넷 확인
+
+9. exectutionRole -> 기본 executionRole에 인라인 정책으로 KMS 관련 롤 + SM 관련 롤을 추가해줘야 권한 오류 발생하지 않는다.
+
+kms
+
+```
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "kms:EnableKey",
+                "kms:GetPublicKey",
+                "kms:ImportKeyMaterial",
+                "kms:Decrypt",
+                "kms:GenerateRandom",
+                "kms:GenerateDataKeyWithoutPlaintext",
+                "kms:Verify",
+                "kms:ListResourceTags",
+                "kms:CancelKeyDeletion",
+                "kms:GenerateDataKeyPair",
+                "kms:GetParametersForImport",
+                "kms:DescribeCustomKeyStores",
+                "kms:DeleteCustomKeyStore",
+                "kms:UpdateCustomKeyStore",
+                "kms:Encrypt",
+                "kms:GetKeyRotationStatus",
+                "kms:ScheduleKeyDeletion",
+                "kms:ReEncryptTo",
+                "kms:DescribeKey",
+                "kms:CreateKey",
+                "kms:ConnectCustomKeyStore",
+                "kms:Sign",
+                "kms:EnableKeyRotation",
+                "kms:ListKeyPolicies",
+                "kms:UpdateKeyDescription",
+                "kms:ListRetirableGrants",
+                "kms:GetKeyPolicy",
+                "kms:DeleteImportedKeyMaterial",
+                "kms:GenerateDataKeyPairWithoutPlaintext",
+                "kms:DisableKey",
+                "kms:ReEncryptFrom",
+                "kms:DisableKeyRotation",
+                "kms:ListGrants",
+                "kms:UpdateAlias",
+                "kms:CreateCustomKeyStore",
+                "kms:ListKeys",
+                "kms:ListAliases",
+                "kms:GenerateDataKey",
+                "kms:CreateAlias",
+                "kms:DisconnectCustomKeyStore",
+                "kms:DeleteAlias"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+
+```
+
+```
+ssm
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:ListCommands",
+                "ssm:ListDocumentVersions",
+                "ssm:ListDocumentMetadataHistory",
+                "ssm:DescribeMaintenanceWindowSchedule",
+                "ssm:DescribeInstancePatches",
+                "ssm:ListInstanceAssociations",
+                "ssm:GetParameter",
+                "ssm:GetMaintenanceWindowExecutionTaskInvocation",
+                "ssm:DescribeAutomationExecutions",
+                "ssm:GetMaintenanceWindowTask",
+                "ssm:DescribeMaintenanceWindowExecutionTaskInvocations",
+                "ssm:DescribeAutomationStepExecutions",
+                "ssm:ListOpsMetadata",
+                "ssm:DescribeParameters",
+                "ssm:ListResourceDataSync",
+                "ssm:ListDocuments",
+                "ssm:DescribeMaintenanceWindowsForTarget",
+                "ssm:ListComplianceItems",
+                "ssm:GetConnectionStatus",
+                "ssm:GetMaintenanceWindowExecutionTask",
+                "ssm:GetOpsItem",
+                "ssm:GetMaintenanceWindowExecution",
+                "ssm:ListResourceComplianceSummaries",
+                "ssm:GetParameters",
+                "ssm:GetOpsMetadata",
+                "ssm:ListOpsItemRelatedItems",
+                "ssm:DescribeOpsItems",
+                "ssm:DescribeMaintenanceWindows",
+                "ssm:DescribeEffectivePatchesForPatchBaseline",
+                "ssm:GetServiceSetting",
+                "ssm:DescribeAssociationExecutions",
+                "ssm:DescribeDocumentPermission",
+                "ssm:ListCommandInvocations",
+                "ssm:GetAutomationExecution",
+                "ssm:DescribePatchGroups",
+                "ssm:GetDefaultPatchBaseline",
+                "ssm:DescribeDocument",
+                "ssm:DescribeMaintenanceWindowTasks",
+                "ssm:ListAssociationVersions",
+                "ssm:GetPatchBaselineForPatchGroup",
+                "ssm:PutConfigurePackageResult",
+                "ssm:DescribePatchGroupState",
+                "ssm:DescribeMaintenanceWindowExecutions",
+                "ssm:GetManifest",
+                "ssm:DescribeMaintenanceWindowExecutionTasks",
+                "ssm:DescribeInstancePatchStates",
+                "ssm:DescribeInstancePatchStatesForPatchGroup",
+                "ssm:GetDocument",
+                "ssm:GetInventorySchema",
+                "ssm:GetParametersByPath",
+                "ssm:GetMaintenanceWindow",
+                "ssm:DescribeInstanceAssociationsStatus",
+                "ssm:DescribeAssociationExecutionTargets",
+                "ssm:GetPatchBaseline",
+                "ssm:DescribeInstanceProperties",
+                "ssm:ListInventoryEntries",
+                "ssm:DescribeAssociation",
+                "ssm:ListOpsItemEvents",
+                "ssm:GetDeployablePatchSnapshotForInstance",
+                "ssm:DescribeSessions",
+                "ssm:GetParameterHistory",
+                "ssm:DescribeMaintenanceWindowTargets",
+                "ssm:DescribePatchBaselines",
+                "ssm:DescribeEffectiveInstanceAssociations",
+                "ssm:DescribeInventoryDeletions",
+                "ssm:DescribePatchProperties",
+                "ssm:GetInventory",
+                "ssm:GetOpsSummary",
+                "ssm:DescribeActivations",
+                "ssm:GetCommandInvocation",
+                "ssm:ListComplianceSummaries",
+                "ssm:DescribeInstanceInformation",
+                "ssm:ListTagsForResource",
+                "ssm:DescribeDocumentParameters",
+                "ssm:ListAssociations",
+                "ssm:GetCalendarState",
+                "ssm:DescribeAvailablePatches"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+
+```
+
+```
+
+EC2의 경우는 해당 인스턴스에 대한 대상등록을 해줘야하는데
+
+ALB로 돌아가는 로드밸런스의 설정된 IP는 컨테이너가 정상적으로 뜨고 연결됐을 때 마지막에 IP를 할당하기 때문에 현재 돌아가고 있지 않으면
+
+해당 대상 그룹에는 IP가 존재하지 않는 게 맞다. 이 부분은.. ECS에서 확인할 것은 없을 것 같고. taskdef 설정에서 자꾸 문제가 생겨 이 부분에 신경쓸 필요가 있다.
 
 -> 대상 그룹이 unhealthy인지 확인하고..
 
@@ -418,4 +600,4 @@ AWS Security Token Service를 사용하여 요청에 서명하는 데 사용할 
 
 5. 배포그룹 ~ 대상그룹.. 사이에서 문제가 발생한 것 같은데
 
-6. ECS에서 해당 컨테이너 정보 DB_PASSWORD 등등 잘 올라왔는지 태스크 정의에서 확인.. taskdef의 DB_PASSWORD 경로가 오류나서 문제가 생겼다.
+```
