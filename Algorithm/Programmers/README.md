@@ -50,7 +50,11 @@
 
 17. 징검다리 건너기 ** => 이분탐색
 
-18. 길찾기 게임 ** => Node Connect + Priority Queue
+18. 길찾기 게임 ** => Node Connect + Priority Queue => 트리를 만든다면?
+
+19. 섬 연결하기 ** => 크루스칼 알고리즘 => 최단 거리
+
+20. 합승 택시 요금 ** => 다익스트라 알고리즘 => 서로 통행 가능하도록 만들 때 필요한 최소 비용 
 
 # 순열 (Level - 2 소수찾기, 단체사진 찍기)
 
@@ -526,6 +530,8 @@ class Solution {
         while (!pq.isEmpty()) {
             
             Edge current = pq.poll();
+
+            if(visited[current.vertex]) continue;
             
             visited[current.vertex] = true;
             
@@ -543,6 +549,47 @@ class Solution {
         }
         
         
+        
+        return answer;
+    }
+}
+
+```
+
+# 플로이드 와샬 알고리즘 (최단 거리)
+
+```
+
+class Solution {
+    public int solution(int n, int s, int a, int b, int[][] fares) {
+        
+        int answer = 20000001;
+        
+        int[][] graph = new int[n+1][n+1];
+        
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                graph[i][j] = 20000001;
+            }
+            graph[i][i] = 0;
+        }
+        
+        for (int i=0; i<fares.length; i++) {
+            graph[fares[i][0]][fares[i][1]] = fares[i][2];
+            graph[fares[i][1]][fares[i][0]] = fares[i][2];
+        }
+        
+        for (int k=1; k<=n; k++) {
+            for (int i=1; i<=n; i++) {
+                for (int j=1; j<=n; j++) {
+                    graph[i][j] = Math.min(graph[i][j], graph[i][k] + graph[k][j]);
+                }
+            }
+        }
+        
+        for (int i=1; i<=n; i++) {
+            answer = Math.min(answer, graph[s][i] + graph[i][a] + graph[i][b]);
+        }
         
         return answer;
     }
@@ -593,6 +640,7 @@ class Solution {
         for (int i=0; i<costs.length; i++) {
             pq.offer(new Edge(costs[i][0], costs[i][1], costs[i][2]));
         }
+
         
         while(!pq.isEmpty()) {
             
@@ -625,7 +673,7 @@ class Solution {
 
 ```
 
-# Node Connect + Priority Queue
+# Node Connect + Priority Queue (트리 형태)
 
 ```
 
