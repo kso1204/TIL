@@ -124,6 +124,7 @@ void permutation(boolean[] visited, int[] dist, int idx)
             }
         }
     }
+
 ```
 
 # HashMap Value 정렬
@@ -727,5 +728,56 @@ public void connectNode(Node parent, Node child)
                 
         }
     }
+
+```
+
+# DFS (문자열)
+ 
+```
+
+import java.util.*;
+
+class Solution {
+    
+    String[][] copyTickets;
+    
+    int n;
+    
+    ArrayList<String> answerList = new ArrayList<>();
+    
+    boolean[] visited;
+    
+    public String[] solution(String[][] tickets) {
+        String[] answer = {};
+        
+        n = tickets.length;
+        
+        visited = new boolean[n];
+        
+        copyTickets = tickets;
+        
+        dfs("ICN", "ICN", 0);
+        
+        Collections.sort(answerList);
+        
+        return answerList.get(0).split(" ");
+    }
+    
+    public void dfs(String before, String str, int depth)
+    {
+        if (depth == n) {
+            answerList.add(str);
+            return;
+        }
+        
+        for (int i=0; i<n; i++) {
+            if(before.equals(copyTickets[i][0]) && !visited[i]) {
+                visited[i] = true;
+                dfs(copyTickets[i][1], str + " " + copyTickets[i][1], depth+1);
+                visited[i] = false;
+            }
+        }
+    }
+}
 
 ```
