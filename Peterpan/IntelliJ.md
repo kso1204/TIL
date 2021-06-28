@@ -52,3 +52,9 @@
 15. elasticbeansTalk에 업로드가 잘못되었을 경우 빠르게 어플리케이션 버전 -> 마지막 배포했던 내용으로 재배포
 
 16. https://winmargo.tistory.com/196
+
+# 사용팁
+
+- https://jojoldu.tistory.com/149 (브레이크 포인트)
+
+- https://huskdoll.tistory.com/5 (정렬..?)
