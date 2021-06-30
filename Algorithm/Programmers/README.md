@@ -86,44 +86,6 @@ void permutation(String prefix, String str) {
     }
 }
 
-// depth 와 배열로 순열 만들기
-
-void permutation(String str, int depth, int[] card)
-{
-    if(card.length == depth) {
-        list.add(str);
-        return;
-    }
-
-    for(int i=0;i<card.length;i++) {
-        int num = card[i];
-        if(!comb.contains(""+num)) {
-            permutation(str+num, depth+1, card);
-        }
-    }
-}
-
-
-void permutation(boolean[] visited, int[] dist, int idx)
-    {
-        if (idx == dist.length) {
-            list.add(dist); // dist Array를 arrayList에 넣는 상황
-            return;
-            for(int[] weak_case : weak_cases) {
-                check(dist, weak_case); // dist Array를 그대로 활용하는 상황
-            }
-        }
-
-        for(int i=0; i<dist.length; i++) {
-            if(!visited[i]) {
-                visited[i] = true;
-                dist[idx] = dist[i];
-                makeDistCases(visited, dist, idx+1);
-                dist[idx] = 0;
-                visited[i] = false;
-            }
-        }
-    }
 
 ```
 
@@ -779,5 +741,51 @@ class Solution {
         }
     }
 }
+
+```
+
+# DFS
+
+```
+
+
+// depth 와 배열로 순열 만들기
+
+void dfs(String str, int depth, int[] card)
+{
+    if(card.length == depth) {
+        list.add(str);
+        return;
+    }
+
+    for(int i=0;i<card.length;i++) {
+        int num = card[i];
+        if(!comb.contains(""+num)) {
+            dfs(str+num, depth+1, card);
+        }
+    }
+}
+
+
+void dfs(boolean[] visited, int[] dist, int idx)
+    {
+        if (idx == dist.length) {
+            list.add(dist); // dist Array를 arrayList에 넣는 상황
+            return;
+            for(int[] weak_case : weak_cases) {
+                check(dist, weak_case); // dist Array를 그대로 활용하는 상황
+            }
+        }
+
+        for(int i=0; i<dist.length; i++) {
+            if(!visited[i]) {
+                visited[i] = true;
+                dist[idx] = dist[i];
+                dfs(visited, dist, idx+1);
+                dist[idx] = 0;
+                visited[i] = false;
+            }
+        }
+    }
 
 ```
