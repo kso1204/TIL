@@ -21,3 +21,99 @@
 # 해결 방안
 
 # 풀이
+
+- DP 풀이
+
+```
+
+public int solution(int N, int number) {
+        int answer = -1;
+
+        Set<Integer>[] set = new Set[8];
+
+        int target = 0;
+
+        for (int i = 0; i < 8; i++){
+            set[i] = new HashSet<>();
+            target = target * 10 + N;
+            set[i].add(target);
+        }
+
+        for (int i = 2; i <= 8; i++){
+            for (int j = 1; j < i; j++){
+                for (int n : set[j - 1]){
+                    for (int m : set[i - j - 1]){
+                        set[i - 1].add(n + m);
+                        set[i - 1].add(n * m);
+                        set[i - 1].add(n - m);
+                        if (m != 0) set[i - 1].add(n / m);
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < 8; i++){
+            if (set[i].contains(number)) {
+                answer = i + 1;
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+```
+
+- DFS 풀이
+
+```
+
+일반적인 DFS와 다르게 depth가 1부터 8-depth까지 진행하는 이유는
+
+숫자를 이어붙이는 개념인 n*10 + n을 사칙연산하기 위함이다.
+
+class Solution {
+    
+    int number = 0;
+    int n = 0;
+    int answer = 9;
+    
+    public int solution(int N, int number) {
+        
+        this.number = number;
+        this.n = N;
+        
+        dfs(1,n);
+        
+        return answer<= 8? answer: -1;
+    }
+
+    
+    public void dfs (int depth, int num)
+    {
+        if(depth > 8) {
+    		return;    		
+    	}
+    	
+        if(num == number) {
+            answer = Math.min(depth, answer); 
+            return;
+        }
+        
+        int temp = n;
+        
+        
+        for (int i=1; i<=8-depth; i++) {
+            
+            dfs(depth+i, num + temp);
+            dfs(depth+i, num - temp);
+            dfs(depth+i, num / temp);
+            dfs(depth+i, num * temp);
+            temp*=10;
+            temp+=n;
+            
+        }
+    }
+}
+
+```
