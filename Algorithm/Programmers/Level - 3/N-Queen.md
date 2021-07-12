@@ -281,3 +281,58 @@ class Solution {
 }
 
 ```
+
+- 20210713
+
+```
+class Solution {
+    
+    int[] board;
+    int answer = 0;
+    int n;
+    
+    public int solution(int n) {
+        
+        this.n = n;
+        
+        board = new int[n];
+        
+        backTracking(0);
+        
+        return answer;
+    }
+    
+    void backTracking(int depth)
+    {
+        if (depth == n) {
+            answer++;
+            return;
+        }
+        
+        for (int i=0; i<n; i++) {
+            
+            board[depth] = i;
+            
+            if (check(depth)) {
+                backTracking(depth+1);
+            }
+        }
+    }
+    
+    boolean check(int depth)
+    {
+        for (int i=0; i<depth; i++) {
+            
+            if (board[depth] == board[i] || Math.abs(depth-i) == Math.abs(board[depth]-board[i])) {
+                return false;
+            }
+            
+        }
+        
+        return true;
+    }
+    
+}
+
+
+```
