@@ -48,3 +48,15 @@
 3. 오픈 API 지향 아키텍처
 
 - 서버는 데이터와 조작을 위한 기능만 제공하고 그 밖에 화면을 구성하는 모든 것들을 클라이언트가 구성하는 아키텍처를 오픈 API 지향 아키텍처라고 한다.
+
+# RPC 와 API
+
+1. https://mindock.github.io/network/rest-rpc/
+
+# RPC vs API vs GraphQL
+
+1. http://engineersinkorea.com/2020/08/08/rpc-vs-rest-vs-graphql/
+
+# REST API
+
+1. https://ijbgo.tistory.com/20
