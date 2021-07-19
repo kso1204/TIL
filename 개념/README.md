@@ -45,3 +45,28 @@
 - 암호화 - 공개키, 복호화 - 개인키
 
 - SHA - 단방향 해싱, RSA - 비대칭키 암호화 방식 (공개키 != 개인키), AES - 대칭키 암호화 방식 (공개키 = 개인키)
+
+# Cache
+
+1. https://mangkyu.tistory.com/69?category=925341
+
+- 캐시는 Cache Hit, Cache miss, Long Tail의 주요 키 포인트
+
+- Long Tail이란 상위 20%의 요구가 리소스의 대부분을 사용하는 것
+
+# SQL 고급 
+
+1. https://mangkyu.tistory.com/25?category=761304
+
+# 트랜잭션, 동시성 제어, 회복
+
+1. https://mangkyu.tistory.com/25?category=761304
+
+- 트랜잭션이란 DBMS에서 데이터를 다루는 논리적인 작업의 단위
+
+- Commit이란 트랜잭션의 수행이 완료됨을 트랜잭션 관리자에게 알려 주는 연산
+
+- 트랜잭션은 전체가 수행되거나 또는 전혀 수행되지 않아야 한다.(All or Nothing)
+
+- 
+# 
