@@ -26,3 +26,12 @@ https://namu.wiki/w/PHP
 
 * https://www.inflearn.com/course/php8-new-features# 인프런에 이런 부분이 있다.. 앞으로 8에 대한 관심이 필요하다.
 
+# PHP 8.0 
+
+1. https://happist.com/576760/php-8-%EC%84%A4%EC%B9%98-%EB%B0%A9%EB%B2%95
+
+2. https://www.inflearn.com/course/php8-new-features
+
+3. https://pronist.tistory.com/60
+
+4. https://pronist.tistory.com/36?category=844807
