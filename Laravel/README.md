@@ -23,3 +23,5 @@
 # Relation With
 
 - https://stackoverflow.com/questions/18963483/retrieving-relationships-of-relationships-using-eloquent-in-laravel
+
+- 폴더별 깃 설정
