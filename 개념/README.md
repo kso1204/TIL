@@ -277,3 +277,13 @@
 11. 모놀리식 애플리케이션 방식에서 마이크로서비스 구조로 변화가 쉽다. 즉, 컨테이너 하나당 하나의 기능만을 제공하는 모듈로 만들어서 부하가 많은 모듈은 여러개 더 만들고 하는 
 
 12. 조정이 가능해진다.
+
+13. https://tpcable.co.kr/45
+
+14. https://www.44bits.io/ko/keyword/linux-container
+
+# 윈도우 컨테이너
+
+1. https://tech.devsisters.com/posts/intro-windows-container/
+
+2. https://docs.microsoft.com/ko-kr/virtualization/windowscontainers/deploy-containers/linux-containers
