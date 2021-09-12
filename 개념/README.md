@@ -287,3 +287,15 @@
 1. https://tech.devsisters.com/posts/intro-windows-container/
 
 2. https://docs.microsoft.com/ko-kr/virtualization/windowscontainers/deploy-containers/linux-containers
+
+# 메모리
+
+1. http://tcpschool.com/c/c_memory_structure
+
+# 컴파일 Vs 런타임
+
+1. https://dd-corp.tistory.com/9
+
+# constant pool (상수 풀)
+
+1. https://devlog-wjdrbs96.tistory.com/248
