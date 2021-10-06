@@ -19,3 +19,9 @@
 5. Entity To Dto <-> Dto To Entity 의 변환을 통해 클라이언트의 request와 서버의 response의 결합도를 줄이는데
 
 6. Entity는 모델이라고 생각하면 될 것 같고 이 부분은 나중에 DB를 사용하게 되면 알 수 있을 것 같다.
+
+# 어노테이션
+
+# bean
+
+1. https://cbw1030.tistory.com/54
