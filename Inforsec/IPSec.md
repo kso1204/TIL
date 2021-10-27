@@ -2,6 +2,8 @@
 
 참고 : https://m.blog.naver.com/PostView.nhn?blogId=sdug12051205&logNo=221537706305&proxyReferer=https:%2F%2Fwww.google.com%2F
 
+1. https://blog.naver.com/PostView.naver?blogId=evolve0702&logNo=222150428891&parentCategoryNo=&categoryNo=9&viewDate=&isShowPopularPosts=false&from=postList
+
 IPSec을 기준으로 전송모드, 터널모드
 
 AH는 Trailer 존재 X
