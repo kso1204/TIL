@@ -32,5 +32,3 @@
 
 1. https://blog.naver.com/PostView.nhn?blogId=stereok2&logNo=222051462751&categoryNo=29&parentCategoryNo=25&viewDate=&currentPage=&postListTopCurrentPage=&isAfterWrite=true
 
-2. https://blog.naver.com/evolve0702
-
