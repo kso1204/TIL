@@ -30,6 +30,18 @@
 
 6.  가명정보(추가정보의 사용 없이는 특정 개인을 알아볼 수 없게 조치한 정보)는 통계작성, 과학적 연구, 공익적 기록보존 목적으로 정보주체의 동의없이 처리 허용
 
+7. https://itsandtravels.blogspot.com/2019/09/spf-dkim-dmarc.html SPF, DKIM, DMARC
+
+```
+
+메일 서버 등록제(Sender Policy Framework, SPF) - 메일 수신 측에서 발신서버에 직접 메일 전송 여부를 확인
+
+도메인 키 인증 메일(Domain Keys Indentified Mail, DKIM) - 메일 헤더에 서명값을 넣은 뒤 공개키를 이용해 메일의 위/변조 여부 확인 
+
+DMARC(Domain-based Message Authentification, Reporting&conformance) - SPF, DKIM 기술을 모두 활용하여 메일을 확인하고, 자신의 메일을? 도메인을? 사칭한 메일에 대한 보고
+
+```
+
 도움 받은 사이트  
 
 1. https://blog.naver.com/PostView.nhn?blogId=stereok2&logNo=222051462751&categoryNo=29&parentCategoryNo=25&viewDate=&currentPage=&postListTopCurrentPage=&isAfterWrite=true
