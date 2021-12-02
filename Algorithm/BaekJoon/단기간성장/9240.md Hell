@@ -1,0 +1,21 @@
+# 로버트 후드
+
+# 카테고리
+
+1. rotatingCalipers
+
+2. CCW
+
+3. 그레이엄 스캔
+
+4. 심화
+
+# 해결 방안
+
+1. rotatingCalipers https://aruz.tistory.com/entry/rotating-calipers
+
+2. https://velog.io/@hammii/%EB%B0%B1%EC%A4%80-9240-%EB%A1%9C%EB%B2%84%ED%8A%B8-%ED%9B%84%EB%93%9C-java
+
+3. 이 부분에서 잘 이해가 안 가는 부분이.. 반시계 방향이면 오른쪽에 있는 점을 다음으로 넘기면서 왜 최대값을 갱신하지 않는지??!!?! 이해 안 됨
+
+# 풀이
