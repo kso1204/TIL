@@ -10,7 +10,19 @@
 
 - https://mygumi.tistory.com/126
 
-2. 
+2. TRIE
+
+- https://velog.io/@cgw0519/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%8A%B8%EB%9D%BC%EC%9D%B4
+
+- https://hongjuzzang.github.io/cs/trie_tree/
+
+- https://lotuslee.tistory.com/98
+
+- https://maivve.tistory.com/254
+
+- https://the-dev.tistory.com/3
+
+- https://woovictory.github.io/2020/04/22/Java-Trie-Implement/
 
 # 모듈러 연산
 
