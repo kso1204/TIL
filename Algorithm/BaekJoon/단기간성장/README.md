@@ -2,6 +2,8 @@
 
 1. https://www.acmicpc.net/workbook/view/4349
 
+2. https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=kks227&logNo=220907708368
+
 # 정리해야 하는 알고리즘 or 자료구조 or 개념 목록
 
 1. LCS 
