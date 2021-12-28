@@ -98,3 +98,17 @@ TSP는 한 정점에서 다른 모든 정점을 순회하여 다시 출발 정�
 
 1. https://st-lab.tistory.com/137
 
+
+# X축 정렬 Y축 정렬
+
+```
+
+Arrays.sort(pos, new Comparator<int[]>() { //x좌표 오름차순 정렬. x좌표 같으면 y좌표 오름차순 정렬
+    @Override
+    public int compare(int[] o1, int[] o2) {
+        if(o1[0] == o2[0])  return o1[1] - o2[1];
+        else  return o1[0] - o2[0];
+    }
+}); 
+
+```
