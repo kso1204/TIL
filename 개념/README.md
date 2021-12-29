@@ -30,6 +30,14 @@
 
 - Representation of Resource (json(자바스크립트 데이터 오브젝트))
 
+# GraphQL
+
+1. https://www.redhat.com/ko/topics/api/what-is-graphql
+
+2. https://tech.kakao.com/2019/08/01/graphql-basic/
+
+3. https://hwasurr.io/api/rest-graphql-differences/
+
 # 서버 기반 인증시스템 VS 토큰 기반 인증 시스템
 
 1. https://mangkyu.tistory.com/55?category=925341
