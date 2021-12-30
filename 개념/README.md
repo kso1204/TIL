@@ -307,3 +307,23 @@
 # constant pool (상수 풀)
 
 1. https://devlog-wjdrbs96.tistory.com/248
+
+# SSR
+
+1. https://d2.naver.com/helloworld/7804182
+
+# 웹은 어떻게 동작할까?
+
+1. https://devcecy.com/%ec%9b%b9%ec%9d%80-%ec%96%b4%eb%96%bb%ea%b2%8c-%eb%8f%99%ec%9e%91%ed%95%a0%ea%b9%8c/
+
+# 브라우저의 렌더링 과정 ****
+
+1. https://devcecy.com/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%A0%8C%EB%8D%94%EB%A7%81-%EB%90%A0%EA%B9%8C/
+
+# 바이트 코드? 바이너리 코드?
+
+1. https://usefultoknow.tistory.com/entry/%EB%B0%94%EC%9D%B4%EB%84%88%EB%A6%AC%EC%99%80-%EB%B0%94%EC%9D%B4%ED%8A%B8-%EC%BD%94%EB%93%9C%EB%9E%80-%EA%B8%B0%EA%B3%84%EC%96%B4%EB%9E%80
+
+# 브라우저와 렌더링 엔진, 자바스크립트 엔진
+
+1. https://jsmokblog.tistory.com/20
