@@ -168,6 +168,10 @@
 
 4. Apache의 경우에는 해당 역할을 하는 모듈이 내장되어 있다. 그럼에도 php-fpm 사용한다.
 
+5. https://cornswrold.tistory.com/429
+
+6. https://sorjfkrh5078.tistory.com/289
+
 # 정규화
 
 1. https://mangkyu.tistory.com/110?category=761304
@@ -308,9 +312,13 @@
 
 1. https://devlog-wjdrbs96.tistory.com/248
 
-# SSR
+# SSR or CSR
 
 1. https://d2.naver.com/helloworld/7804182
+
+2. https://tecoble.techcourse.co.kr/post/2021-09-10-ssr/
+
+3. https://bbbyung2.tistory.com/65
 
 # 웹은 어떻게 동작할까?
 
@@ -327,3 +335,56 @@
 # 브라우저와 렌더링 엔진, 자바스크립트 엔진
 
 1. https://jsmokblog.tistory.com/20
+
+# 엘라스틱 서치? TF-IDF
+
+1. https://velog.io/@jakeseo_me/%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-1-%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98%EB%8A%94-%EA%B2%80%EC%83%89%EC%97%94%EC%A7%84%EC%9D%B4%EB%8B%A4
+
+2. https://velog.io/@jakeseo_me/%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-2-DB%EB%A7%8C-%EC%9E%88%EC%9C%BC%EB%A9%B4-%EB%90%98%EB%8A%94%EB%8D%B0-%EC%99%9C-%EA%B5%B3%EC%9D%B4-%EA%B2%80%EC%83%89%EC%97%94%EC%A7%84
+
+2. https://webisfree.com/2017-05-24/%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0
+
+```
+
+조금 더 추가 말씀을 드리면,
+
+ES에서는 삭제를 할 때에 해당 document에 delete tag를 붙이고, 새 document를 갈아 끼웁니다.
+그 이유는 샤드에 데이터를 저장할 때, immutable lucene segment로 저장하고 refresh하기 때문입니다. 쉽게 말해서 그냥 안바뀌는 값입니다.
+JAVA의 String이 그런 것 처럼이요.
+
+그래서 그 document는 실제로 언제 지워지냐면, segment merge가 일어날 때입니다. segment가 무한히 많아지면 찾아야할 segment가 늘어나니 느려지겠죠.
+그래서 그걸 주기적으로 merge 하는 merge policy가 default로 있게 됩니다.
+
+그렇다면 merge가 되기 전까지는 memory에 남아있겠죠? 그리고 그걸 검색에서 제외하기 위한 연산이 들어갈 겁니다. 그게 바로 약점입니다.
+
+다양한 걸 설정할 수는 있지만 default로 해놓아도 크게 신경쓰지 않고 잘 merge가 되긴 합니다. 물론 force merge도 할 수 있구요. (반드시 indexing하지 않을 때 merge해야 한다고 합니다)
+그래서 document의 진정한 update는 아니다 라는 설명이 맞는 거구요.
+그냥 공부하다가 아는게 보여서 들렀습니다.
+
+```
+
+
+
+# SEO
+
+1. https://www.hedleyonline.com/ko/blog/seo-guide-2021/
+
+# 이벤트 드리븐 **
+
+1. https://velog.io/@limprove89/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EA%B8%B0%EB%B0%98-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%93%B0%EB%A0%88%EB%93%9C
+
+2. https://12bme.tistory.com/540
+
+3. https://heeonii.tistory.com/3
+
+# Web Server , WAS
+
+1. https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html
+
+# PHP
+
+1. https://dev-youngjun.tistory.com/67
+
+# Java?
+
+1. https://jinbroing.tistory.com/205
