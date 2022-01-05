@@ -377,9 +377,17 @@ JAVA의 String이 그런 것 처럼이요.
 
 3. https://heeonii.tistory.com/3
 
+# 이벤트 루프
+
+1. https://poiemaweb.com/js-event
+
 # Web Server , WAS
 
 1. https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html
+
+2. 웹 서버내에 동적 프로그래밍 기능 추가하는 게 웹 서버 + CGI로 PHP에서 사용하는 것 (인터프리터) - PHP 파서
+
+3. 웹 서버 뒤에 WAS를 연결해서 사용하는 것이 자바에서 사용하는 것 (컴파일 필요)
 
 # PHP
 
@@ -388,3 +396,9 @@ JAVA의 String이 그런 것 처럼이요.
 # Java?
 
 1. https://jinbroing.tistory.com/205
+
+# MSA?
+
+1. https://prodo-developer.tistory.com/137
+
+2. https://mangkyu.tistory.com/108?category=925341
