@@ -643,3 +643,405 @@ message = "success" if score >= 60 else "failure"
 조건문이 참인 경우 if 조건문 else 조건문이 거짓인 경우
 
 ```
+
+# while문
+
+```
+
+treeHit = 0
+
+while treeHit < 10:
+    treeHit = treeHit + 1
+    print("나무를 %d번 찍었습니다" % treeHit)
+    if treeHit == 10:
+        print("나무 넘어갑니다.")
+
+
+```
+
+1. while문 만들기
+
+```
+>>> prompt = """
+1. Add
+2. Del
+3. List
+4. Quit
+
+Enter number: """
+
+number = 0
+
+while number != 4:
+    print(prompt)
+    number = int(input())
+
+1. Add
+2. Del
+3. List
+4. Quit
+
+Enter number:
+
+```
+
+# for문
+
+1. 
+
+```
+
+for 변수 in 리스트(또는 튜플, 문자열):
+    수행할 문장1
+
+```
+
+```
+
+test_list = ['one', 'two', 'three']
+for i in test_list:
+    print(i)
+
+```
+
+2. 다양한 for문의 사용
+
+```
+
+a = [(1, 2), (3, 4), (5, 6)]
+for (first, last) in a:
+    print(first + last)
+3
+7
+11
+
+```
+
+3. for문과 함께 자주 사용하는 range 함수
+
+```
+
+a = range(10)
+
+a => range(0, 10)
+
+0부터 10 미만의 숫자를 포함하는 range 객체를 만들어준다.
+
+marks = [90, 25, 67, 45, 80]
+
+for number in range(len(marks)):
+    if makrs[number] < 60: continue
+    print("%d번 학생 축하합니다. 합격입니다." % (number + 1))
+
+```
+
+4. for와 range를 사용한 구구단
+
+```
+
+for i in range(2, 10):
+    for j in range(1, 10):
+        print(i*j, end = " ")
+    print('')
+
+```
+
+5. 리스트 내포 사용하기
+
+```
+
+a = [1, 2, 3, 4]
+
+result = []
+
+for num in a:
+    result.append(num * 3)
+
+result = [3, 6, 9, 12]
+
+
+리스트 내포를 사용하면?
+
+result = [num * 3 for num in a]
+
+짝수에만 3을 곱하여 담고 싶다면?
+
+result = [num * 3 for num in a if num % 2 == 0]
+
+```
+
+6. 표현식 for 항목 in 반복 가능 객체 if 조건
+
+7. 여러 개 사용도 가능한데.. 잘 쓰려나?
+
+
+```
+
+result = [x*y for x in range(2, 10)
+    for y in range(1, 10)]
+
+```
+
+# 함수
+
+# 파이썬 함수의 구조
+
+```
+
+def 함수 이름(매개변수):
+    수행할 문장1
+    수행할 문장2
+
+def add(a, b):
+    return a + b
+
+a = 3
+b = 4
+c = add(a, b) = 7
+
+```
+
+# 입력값이 몇 개가 될지 모를 때??
+
+```
+
+def 함수 이름(*매개변수):
+    수행할 문장
+
+
+def add_many(*args):
+    result = 0
+    for i in args:
+        result = result + i
+    return result
+
+add_many(1, 2, 3, 4, 5)
+
+add_many(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+응용한다면?
+
+def add_mul(choice, *args):
+    if choice == "add":
+        result = 0
+        for i in args:
+            result = result + i
+    elif choice == "mul":
+        result = 1
+        for i in args:
+            result = result * i
+    return result
+
+result = add_mul('add', 1, 2, 3, 4, 5) = 15
+
+result = add_mul('mul', 1, 2, 3, 4, 5) = 120
+
+```
+
+2. 키워드 파라미터
+
+```
+
+def print_kwargs(**kwargs):
+    print(kwargs)
+
+print_kwargs(name='foo', age=3)
+
+{'age' : 3, 'name' : 'foo'}
+
+매개변수 이름 앞에 **을 붙이면 매개변수 kwagrs는 딕셔너리가 되고 모든 key=value 형태의 결괏값이 그 딕셔너리에 저장된다.
+
+```
+
+# 함수의 결괏값은 언제나 하나이다
+
+```
+
+def add_and_mul(a, b):
+    return a+b, a*b
+
+result = add_and_mul(3, 4) = (7, 12)
+
+result1, result2 = add_and_mul(3, 4)
+
+result1 = 7
+
+result2 = 12
+
+```
+
+# lambda
+
+```
+
+def를 사용해야 할 정도로 복잡하지 않거나 def를 사용할 수 없는 곳에 주로 쓰인다.
+
+lambda 매개변수1, 매개변수2, ... : 매개변수를 사용한 표현식
+
+add = lambda a, b: a+b
+result = add(3, 4) = 7
+
+```
+
+# 사용자 입력과 출력
+
+```
+
+input의 사용
+
+a = input()
+
+Life is too short
+
+a
+
+'Life is too short'
+
+input("질문 내용")
+
+number = input("숫자를 입력하세요: ")
+
+
+```
+
+# 프린트 사용법
+
+```
+
+큰따옴표(")로 둘러싸인 문자열은 + 연산과 동일하다
+
+문자열 띄어쓰기는 콤마로 한다.
+
+print("aa" + "BB") aaBB
+print("aa" "BB") = aaBB
+print("aa", "bb") = aa, bb
+
+```
+
+# 파일 읽고 쓰기
+
+```
+
+f = open("새파일.txt", 'w')
+f.close()
+
+파일 객체 = open(파일 이름, 파일 열기 모드)
+
+파일 열기 모드
+
+r 읽기 모드 - 파일을 읽기만 할 때 사용
+
+w 쓰기 모드 - 파일에 내용을 쓸 때 사용
+
+a 추가 모드 - 파일의 마지막에 새로운 내용을 추가할 때 사용
+
+
+f = open("새파일.txt", 'w')
+
+for i in range(1, 11):
+    data = "%d번째 줄입니다.\n" % i
+    f.write(data)
+f.close()
+
+```
+
+# 프로그램의 외부에 저장된 파일을 읽는 여러 가지 방법
+
+1. readline 함수 사용하기
+
+```
+
+
+f = open("새파일.txt", 'r') <- r
+line = f.readline()
+print(line)
+f.close()
+
+1번째 줄입니다.
+
+만약 모든 줄을 읽어서 화면에 출력하고 싶다면 다음과 같이 작성하면 된다.
+
+f = open("새파일.txt", 'r')
+while True:
+    line = f.readline()
+    if not line: break
+    print(line)
+f.close()
+
+readline()은 더이상 읽을 줄이 없을 경우 None을 출력한다.
+
+
+```
+
+2. readlines 함수 사용하기
+
+```
+
+f = open("새파일.txt", 'r')
+lines = f.readlines()
+for line in lines
+    print(line)
+f.close()
+
+readlines 함수는 파일의 모든 줄을 읽어서 각각의 줄을 요소로 갖는 리스트로 돌려준다.
+
+따라서 위 예에서 lines는 리스트 ["1번째 줄입니다", "2번째 줄입니다", ...]
+
+```
+
+3. read 함수 사용하기
+
+```
+
+f = open("새파일.txt", 'r')
+data = f.read()
+print(data)
+f.close()
+
+f.read()는 파일의 내용 전체를 문자열로 돌려준다. 
+
+```
+
+# 파일에 새로운 내용 추가하기
+
+```
+
+쓰기 모드('w')로 파일을 열 때 이미 존재하는 파일을 열면 그 파일의 내용이 모두 사라지게 된다.
+
+하지만 원래 있던 값을 유지하면서 단지 새로운 값만 추가해야 할 경우도 있다.
+
+이런 경우에는 파일을 추가 모드('a')로 열면 된다.
+
+f = open("새파일.txt", 'a')
+for i in range(11, 20):
+    data = "%d번째 줄입니다.\n" %i
+    f.write(data)
+f.close()
+
+파일을 열고 닫는 것을 자동으로 처리할 수 있는 with
+
+with open("새파일.txt", 'w') as f:
+    f.write("Life is too short")
+
+```
+
+# 명렬 프롬포트 명령어 [인수1, 인수2]
+
+```
+
+sys.py 파일이라고 하면
+
+import sys
+
+args = sys.argv[1:]
+
+for i in args:
+    print(i.upper(), end = ' ')
+
+python sys.py life is too short
+
+=> LIFE IS TOO SHORT
+
+
+
+```
