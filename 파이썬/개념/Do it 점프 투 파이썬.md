@@ -1795,3 +1795,77 @@ list(zip("abc", "def"))
 
 # 외장 함수
 
+1. 자주 사용되고 꼭 알아 두면 좋은 라이브러리
+
+2. sys = sys 모듈은 파이썬 인터프리터가 제공하는 변수와 함수를 직접 제어할 수 있게 해주는 모듈이다.
+
+```
+
+# argv_test.py
+
+import sys
+print(sys.argv)
+
+python argv_test.py you need python
+
+['argv_test.py', 'you', 'need', 'python']
+
+python 명령어 뒤의 모든 것들이 공백을 기준으로 나뉘어서 sys.argv 리스트의 요소가 된다.
+
+
+
+```
+
+3. 강제로 스크립트 종료하기 - sys.exit()
+
+4. 자신이 만든 모듈 불러와 사용하기 - sys.path()
+
+- sys.path는 파이썬 모듈들이 저장되어 있는 위치를 나타낸다.
+
+- 즉 이 위치에 있는 파이썬 모듈은 경로에 상관없이 어디에서나 불러올 수 있다.
+
+
+```
+
+# path_append.py
+import sys
+sys.path.append("C:/doit/Mymod)
+
+sys.path.append를 사용해 경로 이름을 추가할 수 있다.
+
+```
+
+4. pickle = pickle은 객체의 형태를 그대로 유지하면서 파일에 저장하고 불러올 수 있게 하는 모듈이다.
+
+```
+
+pickle 모듈의 dump 함수를 사용하여 딕셔너리 객체인 data를 그대로 파일에 저장하는 방법
+
+import pickle
+f = open("test.txt", 'wb')
+data = {1: 'python', 2: 'you need'}
+pickle.dump(data, f)
+f.close()
+
+pickle.dump로 저장한 파일을 pickle.load를 사용해서 원래 있던 딕셔너리 객체(data) 상태로 그대로 불러오는 예
+
+import pickle
+f = open("test.txt", 'rb')
+data = pickle.load(f)
+print(data)
+{1: 'python', 2: 'you need'}
+
+
+언제쓰지?
+
+```
+
+5. OS - OS 모듈은 환경 변수나 디렉터리, 파일 등의 OS 자원을 제어할 수 있게 해주는 모듈이다
+
+```
+
+os.environ은 현재 시스템의 환경 변수 값을 보여 준다.
+
+
+
+```
