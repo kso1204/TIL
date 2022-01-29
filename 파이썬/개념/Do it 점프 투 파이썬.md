@@ -1045,3 +1045,753 @@ python sys.py life is too short
 
 
 ```
+
+# 클래스 구조 만들기
+
+```
+
+class FourCal:
+    pass
+
+a = FourCal()
+type(a)
+<<class '__main__.FourCal'>>
+
+```
+
+# 객체에 숫자 지정할 수 있게 만들기
+
+```
+
+a.setData(4, 2)
+
+class FourCal:
+    def setData(self, first, second):
+        self.first = first
+        self.second = second
+
+파이썬 메서드의 첫 번째 매개변수 이름은 관례적으로 self를 사용한다.
+
+객체를 호출할 때 객체 자신이 전달되기 때문에 self를 사용한 것이다.
+
+메서드의 첫 번째 매개변수 self를 명시적으로 구현하는 것은 파이썬만의 독특한 특징이다.
+
+```
+
+
+```
+
+a = FourCal()
+b = FourCal()
+a.setData(4, 2)
+b.setData(3, 7)
+id(a.first) //a의 first주소
+1839194944
+id(b.first) //b의 first주소
+1839194928
+
+주소 값이 서로 다르므로 각각 다른 곳에 그 값이 저장된다는 것을 알 수 있다. 
+
+객체변수는 그 객체의 고유 값을 저장할 수 있는 공간이다.
+
+객체변수는 다른 객체들 영향받지 않고 독립적으로 그 값을 유지한다는 점을 꼭 기억하자.
+
+```
+
+1. 더하기 기능 만들기
+
+```
+
+class FourCal:
+    def setData(self, first, second):
+        self.first = first
+        self.second = second
+    def add(self):
+        result = self.first + self.second
+        return result
+
+a = FourCal()
+a.setData(4, 2)
+print(a.add())
+6
+
+```
+
+2. 곱하기 나누기 빼기 만들기
+
+```
+
+class FourCal:
+    def setData(self, first, second):
+        self.first = first
+        self.second = second
+    def add(self):
+        result = self.first + self.second
+        return result
+    def mul(self):
+        result = self.first * self.second
+        return result
+    def div(self):
+        result = self.first / self.second
+        return result
+    def sub(self):
+        result = self.first - self.second
+        return result
+
+```
+
+3. 클래스에 생성자 추가하기
+
+```
+
+class FourCal:
+    def __init__(self, first, second)
+        self.first = first
+        self.second = second
+
+a = FourCal(2, 4)
+
+```
+
+# 클래스의 상속
+
+1. FourCal 클래스에 a^b(a의 b제곱)을 구할 수 있는 기능을 추가해 보자.
+
+```
+
+class MoreFourCal(FourCal):
+    pass
+
+클래스를 상속하기 위해서는 다음처럼 클래스 이름 뒤 괄호 안에 상속할 클래스 이름을 넣어주면 된다.
+
+class 클래스 이름(상속할 클래스 이름)
+
+a = MoreFourCal(4, 2)
+a.add()
+a.mul()
+
+왜 상속을 해야할까?
+
+보통 상속은 기존 클래스를 변경하지 않고 기능을 추가하거나 기능을 변경하려고 할 때 사용한다.
+
+기존 클래스가 라이브러리 형태로 제공되거나 수정이 허용되지 않는 상황이라면 상속을 사용해야 한다.
+
+
+class MoreFourCal(FourCal):
+    def pow(self):
+        result = self.first ** self.second
+        return result
+
+a = MoreFourCal(4, 2)
+a.pow()
+16
+
+```
+
+# 메서드 오버라이딩
+
+```
+
+a = FourCal(4, 0)
+a.div()
+
+4를 0으로 나누려고 하면 ZeroDevisionError 오류가 발생 
+
+하지만 0으로 나눌 때 오류가 아닌0을 돌려주도록 만들고 싶다면?
+
+class SafeFourCal(FourCal):
+    def div(self):
+        if self.second == 0:
+            return 0
+        else:
+            return self.first / self.second
+
+부모 클래스(상속한 클래스)에 있는 메서드를 동일한 이름으로 다시 만드는 것을 메서드 오버라이딩(Overriding, 덮어쓰기)이라고 한다.
+
+```
+
+# 클래스 변수
+
+1. 객체변수는 다른 객체들에 영향받지 않고 독립적으로 그 값을 유지한다는 점을 이미 알아보았다.
+
+2. 이번에는 객체변수와는 성격이 다른 클래스 변수에 대해 알아보자.
+
+```
+
+class Family:
+    lastName = "김"
+
+Family 클래스에 선언한 lastName이 바로 클래스 변수이다.
+
+클래스 변수는 클래스 안에 함수를 선언하는 것과 마찬가지로 클래스 안에 변수를 선언하여 생성한다.
+
+print(Family.lastName)
+김
+
+a = Family()
+b = Family()
+
+print(a.lastName)
+김
+
+print(b.lastName)
+김
+
+Family 클래스의 lastName을 "박"이라는 문자열로 바꾼다면?
+
+Family.lastName = "박"
+
+print(a.lastName)
+박
+
+print(b.lastName)
+박
+
+클래스 변수 값을 변경했더니 클래스로 만든 객체의 lastName 값도 모두 변경된다는 것을 확인할 수 있다.
+
+즉 클래스 변수는 클래스로 만든 모든 객체에 공유된다는 특징이 있다.
+
+id(Family.lastName)
+4480159136
+id(a.lastName)
+4480159136
+id(b.lastName)
+4480159136
+
+id값이 모두 같으므로 모두 같은 메모리를 가리키고 있다.
+
+클래스 변수를 가장 늦게 설명하는 이유는 클래스에서 클래스 변수보다는 객체 변수가 훨씬 중요하기 때문이다.
+
+실무 프로그래밍을 할 때도 클래스 변수보다는 객체변수를 사용하는 비율이 훨씬 높다.
+
+```
+
+# 모듈
+
+1. 모듈이란 함수나 변수 또는 클래스를 모아 높은 파일이다.
+
+2. 모듈은 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만든 파이썬 파일이라고도 할 수 있다.
+
+```
+
+# mod1.py
+def add(a, b):
+    return a + b
+def sub(a, b):
+    return a - b
+
+add함수와 sub함수만 있는 파일mod1.py를 만들고 저장하자.
+
+이mod1.py 파일이 바로 모듈이다.
+
+파일이 저장된 디렉터리로 이동한 다음
+
+import mod1
+
+print(mod1.add(3, 4))
+
+import의 사용 방법
+
+import 모듈 이름
+
+mod1.add, mod1.sub처럼 쓰지 않고 add, sub처럼 모듈 이름 없이 함수 이름만 쓰고 싶을 경우도 있을 것이다.
+
+이럴 때는 'from 모듈 이름 import 모듈 함수'를 사용하면 된다.
+
+from 모듈 이름 import 모듈 함수
+
+from mod1 import add
+add(3, 4)
+7
+
+add 함수와 sub 함수를 둘 다 사용하는 두 가지 방법
+
+from mod1 import add, sub
+
+from mod1 import *
+
+import *는 mod1.py의 모든 함수를 불러서 사용하겠다는 뜻이다.
+
+```
+
+```
+
+__name__ 변수란?
+
+파이썬의 __name__ 변수는 파이썬이 내부적으로 사용하는 특별한 변수 이름이다.
+
+만약 pyhon mod1.py 처럼 직접 mod1.py 파일을 실행할 경우 mod1.py의 __name__ 변수에는 __main__ 값이 저장된다.
+
+하지만 파이썬 쉘이나 다른 파이썬 모듈에서 mod1을 import할 경우에는 mod1.py의 __name__ 변수에는 mod1.py의 모듈 이름 값 mod1이 저장된다.
+
+```
+
+# 패키지
+
+1. 패키지는 도트(.)를 사용하여 파이썬 모듈을 계층적으로 관리할 수 있게 해준다.
+
+2. 예를 들어 모듈 이름이 A.B인 경우에 A는 패키지 이름이 되고 B는 A패키지의 B 모듈이 된다.
+
+```
+
+__init__.py의 파일은 해당 디렉터리가 패키지의 일부임을 알려주는 역할을 한다.
+
+파이썬 3.3버전부터는 없어도 패키지로 인식하지만 하위 호환이 필요하다면 파일을 생성하는 것이 안전한 방법이다.
+
+```
+
+# 예외 처리
+
+1. 파이썬은 try, except를 사용해서 예외적으로 오류를 처리할 수 있게 해준다.
+
+```
+
+자주 등장하는 오류
+
+0으로 나누기, 없는 파일 읽기, 없는 인덱스 불러오기
+
+try, except문
+
+try:
+    ...
+except [발생 오류[as 오류 메시지 변수]]:
+    ...
+
+[] 기호를 사용하는데, 이 기호는 괄호 안의 내용을 생략할 수 있다는 관례 표기법이다.
+
+즉 except 구문은 다음 3가지 방법으로 사용할 수 있다.
+
+1.  try:
+        ...
+    except:
+        ...
+
+2.  try:
+        ...
+    except 발생 오류:
+        ...
+
+
+3.  try:
+        ...
+    except 발생 오류 as 오류 메시지 변수:
+        ...
+
+try :
+    4 / 0
+except ZeroDivisionError as e:
+    print(e)
+
+결괏값 : division by zero
+
+
+finally 절 사용하기
+
+예외 발생 여부에 상관없이 항상 수행된다.
+
+f = open('foo.txt', 'w')
+
+try:
+    #수행
+finally:
+    f.close()
+
+예외 발생 여부와 관계없이 finally 절에서 f.close()로 열린 파일을 닫을 수 있다.
+
+여러 오류 사용하기?
+
+try:
+    a = [1,2]
+    print(a[3])
+    4/0
+except (ZeroDivisionError, IndexError) as e:
+    print(e)
+
+
+
+```
+
+# 오류 일부러 발생시키기
+
+1. 파이썬은 raise 명령어를 사용해 오류를 강제로 발생시킬 수 있다.
+
+```
+
+예를 들어 Bird 클래스를 상속받는 자식 클래스는 반드시 fly라는 함수를 구현하도록 만들고 싶은 경우가 있을 수 있다.
+
+class Bird:
+    def fly(self):
+        raise NotImplementedError
+
+class Eagle(Bird): //Eagle클래스는 Bird 클래스를 상속 받음
+    pass
+
+
+eagle = Eagle()
+eagle.fly()
+
+Eagle 클래스에서 fly 함수를 구현하지 않았기 때문에 Bird 클래스의 fly 함수가 호출된다.
+
+그리고 raise 문에 의해 NotImplementedError 가 발생한다.
+
+```
+
+# 예외 만들기
+
+```
+
+프로그램 수행 도중 특수한 경우에만 예외 처리를 하기 위해서 종종 예외를 만들어서 사용한다.
+
+예외는 다음과 같이 파이썬 내장 클래스인 Exception 클래스를 상속하여 만들 수 있다.
+
+class MyError(Exception):
+    pass
+
+def say_nick(nick):
+    if nick == '바보':
+        raise MyError()
+    print(nick)
+
+say_nick("천사")
+say_nick("바보")
+
+천사가 한 번 출력된 후 MyError가 발생한다.
+
+예외 처리 했을 경우?
+
+try:
+    say_nick("천사")
+    say_nick("바보")
+except MyError:
+    print("허용되지 않는 별명")
+
+오류 메시지를 사용하고 싶다면?
+
+try:
+    say_nick("천사")
+    say_nick("바보")
+except MyError as e:
+    print(e)
+
+이 상태로는 오류 메시지를 구현하지 않았기 때문에 아무것도 출력되지 않음
+
+오류 메시지가 보이게 하려면 오류 클래스에 다음과 같은 __str__ 메서드를 구현해야 한다.
+
+class MyError(Exception):
+    def __str__(self):
+        return "허용되지 않는 별명입니다"
+
+
+```
+
+# 내장 함수
+
+```
+
+Don't Reinvent The Wheel, 이미 있는 것을 다시 만드느라 쓸데없이 시간을 낭비하지 말라
+
+= 바퀴를 다시 발명할 필요는 없다.
+
+```
+
+1. abs = 절대 값 반환
+
+- abs(-3) = 3
+
+2. all = 반복 가능한 자료형 x를 입력 인수로 받으며 이 x가 모두 참이면 True, 거짓이 하나라도 있으면 False를 반환
+
+- all([1, 2, 3]) = True
+
+- all([1, 2, 3, 0]) = False
+
+3. any = x 중 하나라도 참이 있으면 True를 돌려주고, x가 모두 거짓일 때만 False를 돌려준다.
+
+- all([1, 2, 3, 0]) = True
+
+4. chr = chr(i)는 아스키 코드 값을 입력받아 그 코드에 해당하는 문자를 출력하는 함수
+
+- chr(97) = 'a' 
+
+- chr(48) = '0'
+
+5. dir = dir은 객체가 자체적으로 가지고 있는 변수나 함수를 보여 준다.
+
+다음 예는 리스트와 딕셔너리 객체 관련 함수(메서드)를 보여주는 예이다.
+
+```
+
+dir([1, 2, 3])
+['append', 'count', 'extend', 'index', 'insert', 'pop', ...]
+
+dir({'1' : 'a'})
+['clear', 'copy', 'get', 'has_key', 'items', 'keys', ...]
+
+
+```
+
+6. divmod = divmod(a, b)는 2개의 숫자를 입력으로 받아서 몫과 나머지를 튜플 형태로 돌려주는 함수
+
+- divmod(7, 3) = (2, 1) //2는 몫, 1은 나머지\
+
+7. enumerate = 열거하다. 순서가 있는 자료형(리스트, 튜플, 문자열)을 입력으로 받아 인덱스 값을 포함하는 enumerate 객체를 돌려준다.
+
+```
+
+for i, name in enumerate(['body', 'foo', 'bar']):
+    print(i, name)
+
+0 body
+1 foo
+2 bar
+
+for문처럼 반복되는 구간에서 객체가 현재 어느 위치에 있는지 알려주는 인덱스 값이 필요할 때 enurmerate 함수를 사용하면 매우 유용하다.
+
+```
+
+8. eval = eval(expression)은 실행 가능한 문자열을 입력으로 받아 문자열을 실행한 결괏값을 돌려주는 함수
+
+- eval('1+2') = 3
+
+- 보통 eval은 입력받은 문자열로 파이썬 함수나 클래스를 동적으로 실행하고 싶을 때 사용한다.
+
+9. filter = 무엇인가를 걸러낸다. 첫 번째 인수로 함수 이름을, 두 번째 인수로 그 함수에 차례로 들어갈 반복 가능한 자료형을 받는다.
+
+```
+
+그리고 두 번째 인수인 반복 가능한 자료형 요소가 첫 번째 인수인 함수에 입력되었을 때 반환 값이 참인 것만 묶어서 돌려준다.
+
+def positive(l):
+    result = []
+    for i in l:
+        if i > 0:
+            result.append(num)
+    return result
+
+print(positive([1, -3, 2, 0, -5, 6]))
+
+리스트를 입력값으로 받아 각각의 요소를 판별해서 양수 값만 돌려주는 함수
+
+filter를 사용한다면?
+
+def positive(x):
+    return x > 0
+
+print(list(filter(positive, [1, -3, 2, 0, -5, 6])))
+
+간결하다.
+
+positive를 구현하지 않고 lambda를 사용한다면?
+
+list(filter(lambda x: x > 0, [1, -3, 2, 0, -5, 6]))
+
+```
+
+10. hex = hex(x)는 정수 값을 입력받아 16진수(hexadecimal)로 변환하여 돌려주는 함수
+
+- hex(234) = '0xea'
+
+11. id = id(object)는 객체를 입력받아 객체의 고유 주소 값(reference)을 돌려주는 함수
+
+- a = 3, id(a) = 135072304
+
+12. input = input([prompt])은 사용자 입력을 받는 함수
+
+13. int = int(x)는 문자열 형태의 숫자나 소수점이 있는 숫자 등을 정수 형태로 돌려주는 함수
+
+- int('3') = 3, int('3.4') = 3
+
+- int(x, radix)는 radix 진수로 표현된 문자열 x를 10진수로 변환하여 돌려준다.
+
+- int('1A', 16) = 26 //16진수 1A를 10진수로 변환
+
+- int('11', 2) = 3 //2진수 11을 10진수로 변환
+
+14. isinstance = isinstance(object, class)는 첫 번째 인수로 인스턴스, 두 번째 인수로 클래스 이름을 받는다.
+
+```
+
+입력으로 받은 인스턴스가 그 클래스의 인스턴스인지를 판단하여 참이면 True, 거짓이면 False를 돌려준다.
+
+class Person: pass
+
+a = Person() //Person 클래스의 인스턴스 a 생성
+
+isinstacne(a, person) //a가 Person 클래스의 인스턴스인지 확인
+True
+
+b = 3
+
+isinstance(b, person)
+
+//False
+
+```
+
+15. len = len(s)는 입력값 s의 길이(요소의 전체 개수)를 돌려주는 함수
+
+- len("python") = 6
+
+- len([1, 2, 3]) = 3
+
+- len((1, 'a')) = 2
+
+16. list = list(s)는 반복 가능한 자료형 s를 입력받아 리스트로 만들어 돌려주는 함수
+
+- list("python") = ['p', 'y', 't', 'h', 'o', 'n']
+
+- list((1,2 ,3)) = [1, 2, 3]
+
+17. map = map(f, iterable)은 함수(f)와 반복 가능한(iterable) 자료형을 입력으로 받는다.
+
+```
+
+map은 입력 받은 자료형의 각 요소를 f가 수행한 결과를 묶어서 돌려주는 함수이다.
+
+def two_times(numberList):
+    result = []
+    for number in numberList:
+        result.append(number*2)
+    return result
+
+result = two_times([1, 2, 3, 4])
+print(result)
+
+위 예를 map함수를 사용하면
+
+def two_times(x): return x*2
+
+list(map(two_times, [1, 2, 3, 4]))
+[2, 4, 6, 8]
+
+lambda를 사용한다면?
+
+list(map(lambda a: a*2, [1, 2, 3, 4]))
+[2, 4, 6, 8]
+
+
+```
+
+18. max = max(iterable)는 인수로 반복 가능한 자료형을 입력받아 그 최댓값을 돌려주는 함수
+
+- max([1, 2, 3]) = 3
+
+- max("python") = 'y'
+
+19. min = min(iterable)은 max함수와 반대로, 인수로 반복 가능한 자료형을 입력받아 그 최솟값을 돌려주는 함수
+
+- min([1, 2, 3]) = 1
+
+- min("python") = 'h'
+
+20. oct = oct(x)는 정수 형태의 숫자를 8진수 문자열로 바꾸어 돌려주는 함수
+
+- oct(34) = '0o42'
+
+21. open = open(filename, [mode])은 '파일 이름'과 '읽기 방법'을 입력받아 파일 객체를 돌려주는 함수, 읽기 방법('mode')을 생략하면 기본값인 읽기 전용 모드(r)로 파일 객체를 만들어 돌려준다.
+
+- b는 바이너리 모드로 파일 열기, b는 w, r, a와 함께 사용한다
+
+- f = open("binary_file", 'rb')
+
+- f = open("read_mode.txt", 'r')
+
+
+22. ord = ord(c)는 문자의 아스키 코드 값을 돌려주는 함수
+
+- ord('a') = 97, ord('0') = 48
+
+23. pow(x, y)는 x의 y 제곱한 결괏값을 돌려주는 함수
+
+- pow(2, 4) = 16
+
+24. range = range([start,] stop [,step])는 for문과 함께 자주 사용하는 함수이다. 이 함수는 입력받은 숫자에 해당하는 범위 값을 반복 가능한 객체로 만들어 돌려준다.
+
+```
+
+인수가 하나일 경우
+
+range 함수는 0부터 시작한다.
+
+list(range(5)) 
+
+[0, 1, 2, 3, 4]
+
+인수가 2개일 경우
+
+입력으로 주어지는 2개의 인수는 시작 숫자와 끝 숫자, 단 끝 숫자는 해당 범위에 포함되지 않는다는 것
+
+list(range(5, 10))
+
+[5, 6, 7, 8, 9]
+
+인수가 3개인 경우
+
+세 번째 인수는 숫자 사이의 거리를 말한다.
+
+list(1, 10, 2)
+
+[1, 3, 5, 7, 9]
+
+```
+
+25. round = round(number, [, ndigits]) 함수는 숫자를 입력받아 반올림 해주는 함수
+
+- round(4.6) = 5, round(4.2) = 4
+
+- round(5.678, 2) = 5.68 // 실수 5.678을 소수점 2자리가지만 반올림하여 표시
+
+26. sorted = sorted(iterable) 함수는 입력값을 정렬한 후 그 결과를 리스트로 돌려주는 함수
+
+- sorted([3, 1, 2]) = [1, 2, 3]
+
+27. str = str(object)은 문자열 형태로 객체를 반환하여 돌려주는 함수
+
+- str(3) = '3'
+
+28. sum = sum(iterable)은 입력받은 리스트나 튜플의 모든 요소의 합을 돌려주는 함수
+
+- sum([1, 2, 3]) = 6
+
+29. tuple = tuple(iterable)은 반복 가능한 자료형을 입력받아 튜플 형태로 바꾸어 돌려주는 함수. 
+
+- tuple("abc") = ('a', 'b', 'c')
+
+30. type = type(object)은 입력값의 자료형이 무엇인지 알려 주는 함수
+
+```
+
+type("abc")
+
+<class 'str'> //'abc'는 문자열 자료형
+
+type([])
+
+<class 'list'>
+
+type(open("test", 'w'))
+
+<class '_io.TextIOWrapper> 파일 자료형
+
+```
+
+31. zip = zip(*iterable)은 동일한 개수로 이루어진 자료형을 묶어 주는 역할을 하는 함수
+
+```
+
+list(zip([1, 2, 3], [4, 5, 6]))
+
+[(1, 4), (2, 5), (3, 6)]
+
+list(zip([1, 2, 3], [4, 5, 6], [7, 8, 9]))
+
+[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+
+list(zip("abc", "def"))
+
+[('a', 'd'), ('b', 'e'), ('c', 'f')]
+
+
+```
+
+# 외장 함수
+
