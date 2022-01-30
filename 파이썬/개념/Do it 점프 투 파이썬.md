@@ -1866,6 +1866,817 @@ print(data)
 
 os.environ은 현재 시스템의 환경 변수 값을 보여 준다.
 
+import os
+os.environ
 
+시스템 정보를 보여준다.
+
+os.environ['PATH']
+
+시스템의 PATH 환경 변수를 보여준다.
+
+
+디렉터리 위치 변경하기 -os.chdir
+
+현재 디렉터리 위치를 변경할 수 있다.
+
+os.chdir("C:\Windows")
+
+
+
+디렉터리 위치 돌려받기 - os.getcwd
+
+os.getcwd는 현재 자신의 디렉터리 위치를 돌려준다.
+
+os.getcwd()
+
+시스템 명령어 호출하기 -os.system
+
+os.system("dir")
+
+실행한 시스템 명령어의 결괏값 돌려받기 os.popen
+
+f = os.popen("dir")
+
+읽어 들인 파일 객체의 내용을 보기 위해서는?
+print(f.read())
+
+os.mkdir(dir) - 디렉터리 생성
+os.rmdir(dir) - 디렉터리 삭제
+os.unlink(fileName) - 파일 삭제
+os.rename(src, dst) - src 파일이름을 dst로 변경
+
+```
+
+6. shutil = shutil은 파일을 복사해 주는 파이썬 모듈이다.
+
+```
+
+import shutil
+shutil.copy("src.txt", "dst.txt")
+
+src.txt 파일과 동일한 내용이 dst.txt에 복사되고 dst.txt파일이 존재할 경우 덮어 씌운다.
+
+```
+
+7. glob 가끔 파일을 읽고 쓰는 기능이 있는 프로그램을 만들다 보면 특정 디렉터리에 있는 파일 이름 모두를 알아야 할 때가 있다. 이럴 때 사용하는 모듈이 glob이다.
+
+```
+
+디렉터리에 있는 파일들을 리스트로 만들기 - glob(fileName)
+
+glob 모듈은 디렉터리 안의 파일들을 읽어서 돌려준다.
+
+*.? 등 메타 문자를 써서 원하는 파일만 읽어 들일 수도 있다.
+
+다음은 C:/doit 디렉터리에 있는 파일 중 이름이 mark로 시작하는 파일을 모두 찾아서 읽어 들이는 예이다.
+
+import glob
+glob.glob("c:/doit/mark*")
+['C:/doit\\marks1.py', 'C:/doit\\marks2.py', 'C:/doit\\marks3.py', ...]
+
+```
+
+8. tempfile - 파일을 임시로 만들어서 사용할 때 유용한 모듈, tempfile.mktemp()는 중복되지 않는 임시 파일의 이름을 무작위로 만들어서 돌려준다.
+
+```
+
+import tempfile
+filename = tempfile.mktemp()
+filename
+~~
+
+tempfile.TemporyFile()은 임시 저장 공간으로 사용할 파일 객체를 돌려준다.
+
+이 파일은 기본적으로 wb를 갖는다. f.close()가 호출되면 이 파일 객체는 자동으로 사라진다.
+
+import tempfile
+f = tempfile.TemporaryFile()
+f.close()
+
+```
+
+9. time - 시간과 관련된 time 모듈
+
+```
+
+time.time - UTC를 사용하여 현재 시간을 실수 형태로 돌려주는 함수
+
+import time
+time.time()
+988458015~...
+
+time.localtime
+
+time.localtime은 time.time()이 돌려준 실수 값을 사용해서 연도, 월, 일, 시, 분, 초, ...의 형태로 바꾸어 주는 함수
+
+time.localtime(time.time())
+time.struct_time(tm_year=2013, tm_mon=5, ...)
+
+time.asctime은 time.localtime에 의해서 반환된 튜플 형태의 값을 인수로 받아서 날짜와 시간을 알아보기 쉬운 형태로 돌려주는 함수이다.
+
+time.asctime(time.localtime(time.time()))
+'Sat Apr 28 20:50:20 2001'
+
+time.ctime은 항상 현재 시간을 time.asctime 형태로 돌려준다.
+
+time.ctime
+'Sat Apr 28 20:50:20 2001'
+
+time.strftime('출력할 형식 포맷 코드', time.localtime(time.time()))
+
+strftime 함수는 시간에 관계된 것을 세밀하게 표현하는 여러 가지 포맷 코드를 제공한다.
+
+%a 요일 줄임말 Mon
+%b 달 줄임말 Jan
+%c 날짜와 시간 출력 06/01/01 17:22:22
+%d 날(day) [00, 31]
+
+...
+
+
+import time
+time.strftime('%x', time.localtime(time.time()))
+'05/01/01'
+
+time.strftime('%c', time.localtime(time.time()))
+'05/01/01 17:22:22'
+
+time.sleep 함수는 주로 루프 안에서 많이 사용한다.
+
+이 함수를 사용하면 일정한 시간 간격을 두고 루프를 실행할 수 있다.
+
+import time
+for i in range(10):
+    print(i)
+    time.sleep(1)
+
+1초 간격으로 0부터 9까지의 숫자를 출력한다. 
+
+```
+
+10. calendar - calendar는 파이썬에서 달력을 볼 수 있게 해주는 모듈이다.
+
+```
+
+calendar.calendar(연도)로 사용하면 그 해의 전체 달력을 볼 수 있다.
+
+calendar.prcal(연도)를 사용해도 같은 결과를 얻을 수 있다.
+
+calendar.prmonth(2015, 12) 2015년 12월의 달력만 보여 준다.
+
+calendar.weekday(연도, 월, 일) 그 날짜에 해당하는 요일 정보를 돌려준다.
+
+calendar.monthrange(연도, 월) 함수는 입력받은 달의 1일이 무슨 요일인지와 그 달이 며칠까지 있는지를 튜플 형태로 돌려준다.
+
+calendar.monthrange(2015, 12) => (1, 31)
+
+2015년 12월 1일은 화요일이고 이 달은 31일까지 있다는 것을 보여줌
+
+0 = 월요일 ~ 6 = 일요일
+
+```
+
+11. random - random은 난수를 발생시키는 모듈이다.
+
+```
+
+0.0에서 1.0 사이의 실수 중에서 난수 값을 돌려주는 예
+
+import random
+random.random()
+0.534~~~~~~~23
+
+1에서 10 사이의 정수 중에서 난수 값
+
+random.randint(1, 10)
+6
+
+재미있는 함수?
+
+# random_pop.py
+import random
+def random_pop(data):
+    number = random.randint(0, len(data)-1)
+    return data.pop(number)
+
+if __name__ == "__main__":
+    data = [1, 2, 3, 4, 5]
+    while data: print(random_pop(data))
+
+random_pop함수는 random 모듈의 choice 함수를 사용하여 좀 더 직관적으로 만들 수도 있다.
+
+def random_pop(data):
+    number = random.choice(data)
+    data.remove(number)
+    return number
+
+random.choice 함수는 입력으로 받은 리스트에서 무작위로 하나를 선택하여 돌려준다.
+
+리스트의 항목을 무작위로 섞고 싶을 때는 random.shuffle 함수를 사용하면 된다.
+
+import random
+data = [1, 2, 3, 4, 5]
+random.shuffle(data)
+data
+[5, 1, 3, 4, 2]
+
+
+
+```
+
+12. webbrowser - 자신의 시스템에서 사용하는 기본 웹 브라우저를 자동으로 실행하는 모듈이다.
+
+```
+
+import webbrowser
+webbrowser.open("http://google.com")
+
+웹 브라우저가 이미 실행된 상태라면 입력 주소로 이동하고, 실행되지 않은 상태라면 새로 웹 브라우저를 실행한 후 해당 주소로 이동한다.
+
+open_new 함수는 이미 웹 브라우저가 실행된 상태이더라도 새로운 창으로 해당 주소가 열리게 한다.
+
+webbrowser.open_new("http://google.com")
+
+
+
+```
+
+13. 스레드를 다루는 threading 모듈
+
+
+```
+
+
+# thread_test.py
+import time
+
+def long_task(): //5초의 시간이 걸리는 함수
+    for i in range(5):
+        time.sleep(1) //1초간 대기
+        print("working:%s\n" % i)
+
+print("Start")
+
+for i in ragne(5):
+    long_task()
+
+print("End")
+
+이 프로그램은 5초의 시간이 걸리는 long_task 함수를 5회 호출하여 25초가 걸린다.
+
+쓰레드를 사용한다면?
+
+# thread_test.py
+import time
+import threading // 스레드를 생성하기 위한 threading 모듈
+
+def long_task(): //5초의 시간이 걸리는 함수
+    for i in range(5):
+        time.sleep(1) //1초간 대기
+        print("working:%s\n" % i)
+
+print("Start")
+
+threads = []
+for i in ragne(5):
+    t = threading.Thread(target=long_task)
+    threads.append(t)
+
+for t in threads:
+    t.start() - 스레드를 실행한다.
+
+
+print("End")
+
+5초 정도에 수행 된다.
+
+threading.Thread를 사용하여 만든 스레드 객체가 동시 작업을 가능하게 해 주기 때문이다.
+
+위 프로그램을 실행해보면 "start" + "end" 가 먼저 출력되고 그 이후에 스레드의 결과가 출력되는 것을 확인할 수 있고, 프로그램 또한 정상 종료되지 않는다.
+
+해당 부분을 제어하기 위해서는?
+
+# thread_test.py
+import time
+import threading // 스레드를 생성하기 위한 threading 모듈
+
+def long_task(): //5초의 시간이 걸리는 함수
+    for i in range(5):
+        time.sleep(1) //1초간 대기
+        print("working:%s\n" % i)
+
+print("Start")
+
+threads = []
+for i in ragne(5):
+    t = threading.Thread(target=long_task)
+    threads.append(t)
+
+for t in threads:
+    t.start() - 스레드를 실행한다.
+
+for t in threads:
+    t.join() // join으로 스레드가 종료될 때까지 기다린다.
+
+print("End")
+
+```
+
+# 정규 표현식
+
+1. 정규 표현식(Regular Expressions)은 복잡한 문자열을 처리할 때 사용하는 기법
+
+# 메타 문자
+
+```
+
+. ^ $ * + {} [] \ | ()
+
+문자 클래스 []
+
+[] 사이의 문자들과 매치
+
+[abc] 
+a yes
+before yes
+dude no
+
+[]안의 두 문자 사이에 하이픈(-)을 사용하면 두 문자 사이의 범위(From-To)를 의미한다. 예를 들어 [a-c]라는 정규 표현식은 [abc]와 동일하고 [0-5]는 [012345]와 동일하다
+
+[a-zA-Z]알파벳 모두, [0-9]숫자
+
+문자 클래스 안에 ^ 메타 문자를 사용할 경우에는 반대라는 의미를 갖는다.
+
+[^0-9] 숫자가 아닌 문자만 매치
+
+정규 표현식 
+
+\d = [0-9]
+\D = [^0-9]
+
+\s = whitespace 문자(space or tab처럼 공백을 표현하는 문자와 매치)  = [\t\n\r\f\v]와 동일하다
+\S = whitespace 문자가 아닌것과 매치 [^\t\n\r\f\v]
+
+\w = 문자 + 숫자와 매치 [a-zA-Z0-9_]와 동일하다
+\W = 문자 + 숫자가 아닌 문자와 매치 [^a-zA-Z0-9_]와 동일
+
+대문자 = 소문자의 반대 의미
+
+```
+
+```
+
+Dot(.)
+
+정규 표현식의 Dot(.) 메타 문자는 줄바꿈 문자인 \n을 제외한 모든 문자와 매치
+
+a.b = a와 b사이에 줄바꿈 문자를 제외한 어떤 문자가 들어가도 매치
+
+
+aab yes
+a0b yes
+abc no = a와b사이에 어떤 문자 하나라도 있어야함
+
+반복(*)
+
+ca*t = 문자 바로 앞에 있는 a가 0번 이상 반복되면 매치
+
+ct yes
+cat yes
+caaaaat yes
+
+반복(+)
+
+ca+t = 문자 바로 앞에 있는 a가 1번 이상 반복되면 매치
+
+ct no <= *와 다른 부분
+cat yes
+caaaat yes
+
+반복({m,n}, ?)
+
+[3,] 을 사용하면 반복 횟수가 3이상
+[,3] 을 사용하면 반복 횟수가 3이하
+
+{m}
+
+ca{2}t
+
+cat no
+caat yes
+
+{m, n}
+
+ca{2, 5}t a가 2 ~ 5번 반복되면 매치
+
+cat no
+caat yes
+caaat yes
+caaaaat yes
+
+?
+
+ab?c = b가 0~1번 사용되면 매치 ?는 {0, 1}을 의미한다
+
+abc yes
+ac yes
+
+
+```
+
+# 정규 표현식을 지원하는 re 모듈
+
+```
+
+import re
+p = re.compile('ab*')
+
+정규식을 사용한 문자열 검색
+
+match() 문자열의 처음부터 정규식과 매치되는지 조사
+
+search() 문자열 전체를 검색하여 정규식과 매치되는지 조사
+
+findall() 정규식과 매치되는 모든 문자열(substring)을 리스트로 돌려준다.
+
+finditer() 정규식과 매치되는 모든 문자열(substring)을 반복 가능한 객체로 돌려준다.
+
+import re
+p = re.compile('[a-z]+')
+
+match
+
+m = p.match("python")
+print(m)
+<re.Match object span=(0,6), match='python'>
+
+m = p.match("3 python")
+print(m)
+None
+
+처음에 나오는 문자 3이 정규식 [a-z]+에 부합되지 않으므로 None을 돌려준다.
+
+p = re.compile("정규 표현식")
+m = p.match("조사할 문자열")
+if m:
+    print("match found:", m.group())
+else:
+    print("no match")
+
+search
+
+m = p.search("python")
+print(m)
+<re.Match object span(0, 6), match='python'>
+
+m = p.search("3 python")
+print(m)
+<re.Match object span(2, 8), match='python'>
+
+문자열을 처음부터 검색하는 것이 아니라 전체를 검색하기 때문에 문자열이 매치된다.
+
+findall
+
+result = p.findall("life is too short")
+print(result)
+['life', 'is', 'too', 'short']
+각각 정규식과 매치해서 리스트로 돌려준다.
+
+finditer
+
+result = p.finditer("life is too short")
+print(result)
+<callable_iterator object at 0x01F5E390>
+for r in result: print(r)
+
+<re.Match object; span=(0, 4), match='life'>
+...
+
+
+```
+
+# match 객체의 메서드
+
+```
+
+어떤 문자열이 매치되었는지?
+
+매치된 문자열의 인덱스는 어디부터 어디까지인지?
+
+group() 매치된 문자열을 돌려준다
+start() 매치된 문자열의 시작 위치를 돌려준다.
+end() 매치된 문자열의 끝 위치를 돌려준다.
+span() 매치된 문자열의 (시작, 끝)에 해당하는 튜플을 돌려준다.
+
+
+import re
+p = re.compile("[a-z]+")
+m = p.match("python")
+m.group()
+'python'
+m.start()
+0
+m.end()
+6
+m.span()
+(0, 6)
+
+m = p.search("3 python")
+m.group()
+'python'
+m.start()
+2
+m.end()
+8
+m.span()
+(2, 8)
+
+compile과 match를 한번에
+
+보통 한 번 만든 패턴 객체를 여러번 사용해야 할 때는 re.compile을 사용하지만 그 외는 이 방법을 사용한다.
+
+m = re.match("[a-z]+", "python")
+
+
+
+```
+
+# 컴파일 옵션
+
+```
+
+DOTALL S dot 문자(.)가 줄바꿈 문자를 포함하여 모든 문자와 매치한다.
+IGNORECASE I 대-소문자에 관계없이 매치한다.
+MULTILINE M 여러 줄과 매치한다. 
+VERBOSE X verbose 모드를 사용한다. (정규식을 보기 편하게 만들 수도 있고 주석 등을 사용할 수도 있따?)
+
+DOTALL, S
+
+import re
+p = re.compile('a.b')
+m = p.match('a\nb')
+print(m)
+None
+
+p = re.compile('a.b', re.DOTALL)
+m - p.match('a\nb')
+print(m)
+<re.Match object; span=(0,3), match='a\nb'>
+
+IGNORECASE, I
+
+p = re.compile('[a-z]', re.I)
+p.match('python')
+<re.Match object; span=(0, 1), match='p'>
+p.match('Python')
+<re.Match object; span=(0, 1), match='P'>
+
+MULTILINE, M
+
+p = re.compile("^python\s\w+")
+
+data = """python one
+life is too short
+python two
+you need python
+python three"""
+
+print(p.final(data))
+
+['python one']
+
+^ 메타 문자를 문자열 전체의 처음이 아니라 각 라인의 처음으로 인식시키고 싶은 경우 사용하는 re.MULTILINE
+
+p = re.compile("^python\s\w+", re.M)
+
+['python one', 'python two', 'python three']
+
+
+VERBOSE, X
+
+지금껏 알아본 정규식보다 복잡한 정규식일 경우 주석 또는 줄 단위로 구분하기 위해 사용한다.
+
+charref = re.compile("r'&[#][0[0-7]+ ...])
+
+charref = re.compile(r"""
+&[#] # start of a numeric
+(
+    0[0-7]+ #octal form
+  | [0-9]+  #decimal form
+  | x[0-9a-fA-F] # hexadecimal form
+)
+;
+""", re.VERBOSE)
+
+```
+
+# 백슬래시 문제
+
+```
+
+\section
+
+p = re.compile('\\\\section')
+
+p = re.compile(r'\\section');
+
+r' => Raw String?
+
+
+
+```
+
+# 메타 문자
+
+```
+
+| 메타 문자는 or과 동일한 의미로 사용. A|B라는 정규식이 있다면 A 또는 B라는 의미가 된다.
+
+^ 메타 문자는 문자열의 맨 처음과 일치함을 의미한다. 
+
+print(re.search("^Life", "Life is too short"))
+match
+print(re.search("^Life", "My Life is too short"))
+None
+
+$ 메타 문자는 ^ 문자열의 끝과 매치함을 의미한다.
+
+print(re.search('short', "Life is too short"))
+match
+print(re.search('short', "Life is too short, you need python"))
+None
+
+\A 메타 문자는 문자열의 처음과 매치됨을 의미한다. 해당 부분은 멀티라인을 사용했을 때 ^와 다르다.
+
+\Z 메타 문자는 문자열의 끝과 매치됨을 의미한다. 해당 부분을 멀티라인을 사용했을 때 $와 다르다.
+
+\b 메타 문자는 단어 구분자이다. 보통 단어는 whitespace에 의해 구분된다.
+
+p = re.compile(r'\bclass\b')
+
+print(p.search("no class at all"))
+match
+print(p.search("no declassfied algorithm"))
+None
+
+\B 메타 문자는 \b와 반대.
+
+
+```
+
+# 그루핑
+
+```
+
+ABC 문자열이 계속해서 반복되는지 조사하는 정규식을 작성한다면?
+
+(ABC)+
+
+p = re.compile("(ABC)+")
+m = p.search("ABCABCABC OK?")
+print(m)
+<re.Match; span=(0, 9), match='ABCABCABC'>
+print(m.group())
+'ABCABCABC'
+
+p = re.compile(r"\w+\s+\d+[-]\d+[-]\d+")
+
+이름 + "" + 전화번호 형태의 문자열을 찾는 정규식
+
+이렇게 매치된 문자열 중에서 이름만 뽑아내고 싶다면?
+
+p = re.compile(r"(\w+)\s+\d+[-]\d+[-]\d+")
+m = p.search("park 010-1234-1234")
+print(m.group(1))
+park
+
+\w+ 부분을 그룹(\w+)으로 만들면 match 객체의 group(index) 메서드를 사용하여 그루핑된 부분의 문자열만 뽑아낼 수 있다.
+
+group(0) 매치된 전체 문자열
+group(n) n 번째 그룹에 해당하는 문자열
+
+p = re.compile(r"(\w+)\s+(\d+[-]\d+[-]\d+)")
+m = p.search("park 010-1234-1234")
+print(m.group(2))
+010-1234-1234
+
+전화번호 중에서 국번만 뽑아내고 싶다면?
+
+p = re.compile(r"(\w+)\s+((\d+)[-]\d+[-]\d+)")
+m = p.search("park 010-1234-1234")
+print(m.group(3))
+010
+
+그룹이 중첩되어 있는 경우는 바깥쪽부터 시작하여 안쪽으로 들어갈수록 인덱스가 증가한다.
+
+그루핑된 문자열 재참조하기?
+
+p = re.compile(r'(\b\w+)\s+\1')
+
+(그룹) + "" + 그룹과 동일한 단어와 매치됨을 의미한다..?
+
+이렇게 정규식을 만들게 되면 2개의 동일한 단어를 연속적으로 사용해야만 매치된다.
+
+이것을 가능하게 해주는 것이 바로 재참조 메타 문자인\1이다.
+
+\1은 정규식의 그룹 중 첫 번째 그룹을 가리킨다.
+
+p.search("paris in the the string").group()
+'the the'
+
+
+
+
+```
+
+# 그루핑된 문자열에 이름 붙이기
+
+```
+
+p = re.compile(r"(?P<name>\w+)\s+((\d+)[-]\d+[-]\d+)")
+
+?P<그룹 이름>
+
+
+m = p.search("park 010-1234-1234")
+print(m.group("name"))
+
+
+
+```
+
+# 전방탐색
+
+```
+
+p = re.compile(".+:")
+m = p.search("http://google.com")
+print(m.group)
+http:
+
+http: 라는 검색 결과에서 :을 제외하고 출력하려면?
+
+이럴 때 사용할 수 있는 것이 바로 전방 탐색이다.
+
+전방 탐색에는 긍정과 부정의 2종류가 있다.
+
+(?=...) 긍정 = ...에 해당하는 정규식과 매치되어야 하며 조건이 통과되어도 문자열이 소비되지 않는다.
+
+(?!...) 부정 = ...에 해당하는 정규식과 매치되지 않아야 하며 조건이 통과되어도 문자열이 소비되지 않는다.
+
+p = re.complie(".+(?=:)")
+m = p.search("http://google.com")
+print(m.group())
+http
+
+기존 정규식과 검색에서는 동일한 효과를 발휘하지만 :에 해당하는 문자열이 정규식 엔진에 의해 소비되지 않아(검색에는 포함되지만 검색 결과에는 제외됨) 검색 결과에서는 :이 제거된 후 돌려주는 효과가 있다.
+
+.*[.].*$
+
+파일이름 + . + 확장자
+
+확장자가 bat인 파일은 제외해야 한다면?
+
+부정형 전방 탐색 이용
+
+.*[.](?!bat$).*$
+
+확장자가 bat가 아닌 경우에만 통과된다.
+
+bat 문자열이 있는지 조사하는 과정에서 문자열이 소비되지 않으므로 bat가 아니라고 판단되면 그 이후 정규식 매치가 진행된다.
+
+exe 역시 제외하라는 조건이 추가되더라도 다음과 같이 표현할 수 있다.
+
+.*[.](?!bat$|exe$).*$
+
+문자열 바꾸기
+
+sub 메서드를 사용하면 정규식과 매치되는 부분을 다른 문자로 쉽게 바꿀 수 잇다.
+
+p = re.compile("(blue|white|red"))
+p.sub('colour', 'blue socks and red shoes')
+'colour socks and colour shoes
+
+딱 한번만 바꾸고 싶은 경우?
+
+count=1 변수를 넘겨주면 된다.
+
+
+p = re.compile("(blue|white|red"))
+p.sub('colour', 'blue socks and red shoes', count=1)
+'colour socks and colour shoes
+
+p.subn을 사용하면 몇 번의 바꾸기가 발생했는지까지 같이 튜플로 돌려준다.
+
+sub 메서드를 사용할 때 참조 구문 사용하기
+
+p = re.compile(r"(?P<name>\w+)\s+\(?P<phone>(\d+)[-]\d+[-]\d+"))
+print(p.sub("\g<phone><name>", "park 010-1234-1234"))
+010-1234-1234 park
+
+이름 + 전화번호의 문자열을 전화번호 + 이름으로 바꾸는 예이다.
+
+sub의 바꿀문자열 부분에 \g(그룹이름)을 사용하면 정규식의 그룹이름을 참조할 수 있게 된다.
 
 ```
