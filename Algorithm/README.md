@@ -1,3 +1,21 @@
+# 추천사이트
+
+1. 프로그래머스 - https://programmers.co.kr/learn/courses/30/lessons/60057
+
+2. 백준 단계별 성장 - https://www.acmicpc.net/step
+
+3. 백준 문제집 단기간 성장 - https://www.acmicpc.net/workbook/view/4349
+
+4. 리트코드 - https://leetcode.com/explore/learn/
+
+- https://inner-game.tistory.com/11
+
+- https://inner-game.tistory.com/666
+
+- https://inner-game.tistory.com/72
+
+5. hackerrank - https://www.hackerrank.com/domains/python
+
 # 알고리즘
 
 * [알고리즘](https://github.com/kso1204/TIL/blob/main/Algorithm/Algorithm.md)
@@ -20,6 +38,23 @@
 7. 문제가 해결되지 않을 땐 다른 사람의 정답을 참고해라
 
 그러나 일정 시간 이상은 꼭 고민하고, 다른 사람의 정답을 복기해라
+
+8. 위 방법은 코딩테스트를 합격하기 위한 방법이다.
+
+# 알고리즘 자체를 잘하기 위해서는?
+
+1. 내가 왜 알고리즘을 못하는지에 대한 파악이 필요하다.
+
+2. 사고력 부족, 창의성 부족
+
+3. 초등학교 수준부터 다시시작하기
+
+- https://inner-game.tistory.com/72
+
+- https://www.youtube.com/channel/UCW90h_Ww6fQAnlv-6oC6HYQ/featured
+
+4. 
+
 
 # 문제해결전략
 
