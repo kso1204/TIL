@@ -1,5 +1,5 @@
 import enum
-from itertools import combinations, permutations, product
+from itertools import combinations, permutations, product, chain
 import re
 
 def solution(numbers, target):
@@ -50,4 +50,16 @@ for back in list2:
 
         num+=1
 
-print(result)
+
+a = [[3, 4], 1, 2]
+
+b = []
+
+for item in a:
+    if type(item) == type([]):
+        b.extend(item)
+    else:
+        b.append(item)
+        
+
+print(b)
