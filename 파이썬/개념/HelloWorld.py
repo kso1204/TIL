@@ -46,3 +46,10 @@ graph['I'] = ['C', 'J']
 graph['J'] = ['I']
 
 print(bfs(graph, 'A'))
+
+
+nums = [2, 7, 11, 15]
+
+table = {num: i for i, num in enumerate(nums)}
+
+print(table)
