@@ -80,3 +80,74 @@
 # 현구막의 리눅스 메모리 관리 **
 
 1. https://www.youtube.com/watch?v=qxmdX449z1U&list=PLgXGHBqgT2TvpJ_p9L_yZKPifgdBOzdVH&index=54
+
+# 조엘의 GC **
+
+1. https://www.youtube.com/watch?v=FMUpVA0Vvjw&list=PLgXGHBqgT2TvpJ_p9L_yZKPifgdBOzdVH&index=24
+
+# 쿨라임의 HTTP/1.1, HTTP/2, 그리고 QUIC **
+
+1. https://www.youtube.com/watch?v=xcrjamphIp4
+
+```
+
+HTTP 1.1
+
+Persistent Connection - 지정한 Timeout 동안 커넥션을 닫지 않는 방식
+
+Pipelining - 하나의 커넥션에서 응답을 기디리지 않고 순차적인 여러 요청을 연속적으로 보내, 그 순서에 맞춰 응답을 받는 방식으로 지연 시간을 줄이는 방법
+
+문제점 ? HTTP의 Head of Line Blocking, Header 중복
+
+HTTP 2
+
+HTTP 메시지 전송 방식의 변화 (Binary, 프레이밍)
+
+요청과 응답의 다중화
+
+리소스간 우선 순위 설정
+
+Server Push (html만 요청해도 js, css 보내주기)
+
+Header 압축 (Dynamic static Table? 허프만 압축 코딩)
+
+문제점 ? TCP의 Head of Line Blocking
+
+HTTP 3 (Quic)
+
+TCP의 한계(지연 불가피(3-way handshake))를 극복하려는 전송 프로토콜
+
+전송 속도 향상
+
+Connection UUID로 서버와 연결
+
+TLS 기본 적용
+
+독립 스트림 사용
+
+
+
+
+```
+
+# 에단의 TLS
+
+1. https://www.youtube.com/watch?v=EPcQqkqqouk
+
+# 럿고의 CORS 
+
+1. 노이즈가 너무 심함 ㅠㅠ
+
+1. https://www.youtube.com/watch?v=7iGIfcEsc2g
+
+# 동글 & 라면의 DNS
+
+1. https://www.youtube.com/watch?v=5rBzHoR4F2A
+
+# 라테의 도메인 주도 설계 DDD
+
+1. https://www.youtube.com/watch?v=VIfNipL5KkU
+
+# 히로의 웹 요청과 응답
+
+1. 
