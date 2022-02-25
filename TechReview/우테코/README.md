@@ -151,3 +151,73 @@ TLS 기본 적용
 # 히로의 웹 요청과 응답
 
 1. 
+
+# 인비의 DTO vs VO
+
+1. https://www.youtube.com/watch?v=z5fUkck_RZM
+
+2. DTO = 데이터 전달용, VO = 값 표현용
+
+3. DTO
+
+- Data Transfer Object
+
+- 데이터를 전달하기 위해 사용하는 객체
+
+- 데이터를 담아서 전달하는 바구니
+
+- "계층 간" 데이터를 전달하기 위한 객체
+
+- Controller <-> DTO <-> Service
+
+- 오직 getter / setter 메서드 만을 갖는다.
+
+- 다른 로직을 갖지 않는다.
+
+- 보내는 쪽에서 setter 로 DTO 생성, 받는 쪽에서 getter 로 DTO 받아옴 
+
+4. Entity Class를 분리하라
+
+- Entity 클래스를 기준으로 테이블이 생성되고 스키마가 변경된다.
+
+- Entity 클래스를 요청이나 응답 값을 전달하는 클래스로 사용한다면 뷰가 변경될 때마다 Entity 클래스를 매번 같이 변경해야 한다.
+
+- Entity 클래스를 변경하면 무수히 많은 클래스 들에게 영향을 끼친다.
+
+- 따라서 요청이나 응답 값을 전달하는 클래스로는 반드시 뷰에 변경에ㄷ 따라 다른 클래스들에게 영향을 끼치지 않고 자유롭게 변경할 수 있는 DTO를 사용해야 한다.
+
+5. VO
+
+- Value Object
+
+- 값 그 자체를 표현하는 객체
+
+- DTO가 getter, setter 외에 로직을 포함하지 않는 것과 달리 VO는 로직을 가진다.
+
+- VO는 Hashcode와 Eqauls를 모두 오버라이드 해줘야 한다. => 완전한 VO가 되기 위해?
+
+```
+
+DTO
+
+용도 - 레이어 간 데이터 전달
+
+동등 결정 - 속성값이 모두 같다고 해서 같은 객체가 아니다.
+
+가변 / 불변 - setter 존재 시 가변, setter 비 존재 시 불변
+
+로직 - getter/setter외의 로직을 갖지 않는다.
+
+VO
+
+용도 - 값 자체 표현
+
+동등 결정 - 속성값이 모두 같으면 같은 객체다
+
+가변 / 불변 - 불변
+
+로직 - getter / setter 외의 로직을 가질 수 있다.
+
+```
+
+https://dev2.peterpanz.kr/agency/list/overlap_addr
