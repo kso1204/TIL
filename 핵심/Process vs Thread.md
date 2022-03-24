@@ -63,7 +63,6 @@
 - 멀티 스레드의 경우 자원 공유의 문제가 발생한다 (동기화 문제)
 - 하나의 스레드에 문제가 발생하면 전체 프로세스가 영향을 받는다.
 
-
 # References 
 
 1. https://gmlwjd9405.github.io/2018/09/14/process-vs-thread.html
